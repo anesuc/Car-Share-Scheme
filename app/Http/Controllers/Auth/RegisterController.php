@@ -19,7 +19,7 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-
+ 
     use RegistersUsers;
 
     /**
@@ -48,9 +48,15 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+        'name' => 'required|max:255',
+        'email' => 'required|email|max:255|unique:users',
+        'street_number' => 'required|max:255',
+        'route' => 'required|max:255',
+        'locality' => 'required|max:255',
+        'administrative_area_level_1' => 'required|max:255',
+        'postal_code' => 'required|digits_between:1,4',
+        'country' => 'required|max:255',
+        'password' => 'required|min:6|confirmed',
         ]);
     }
 
@@ -63,9 +69,16 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+        'name' => ucwords($data['name']),
+        'email' => $data['email'],
+        'street_number' => $data['street_number'],
+        'route' => $data['route'],
+        'locality' => $data['locality'],
+        'administrative_area_level_1' => $data['administrative_area_level_1'],
+        'country' => $data['country'],
+        'postal_code' => (int)$data['postal_code'],
+        'password' => bcrypt($data['password']),
+        'admin' => 0,
         ]);
     }
 }
