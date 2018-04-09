@@ -1,5 +1,6 @@
 pages:
 	* customer name / other info
+		- link to customer receipts
 	* booking receipt view
 
 don't worry about the API, just put hard-coded dummy data for now
