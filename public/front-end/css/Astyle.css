@@ -4,7 +4,6 @@
 
 .Areceipt {
 	background-color:#F2F2F2;
-	width:80%;
 }
 
 .Areceipt .total {
@@ -24,18 +23,9 @@
 	margin-left:60%;
 }
 
-/*.Adropdown-btn {
-	background-color:#3498DB;
-	color:white;
-	padding:16px;
-	font-size:16px;
-	border:none;
-	cursor:pointer;
-}
 
-.Adropdown-btn:hover .Adropdown-btn:focus {
-	background-color:#FFFFFF;
-}*/
+
+
 
 
 .Adropdown {

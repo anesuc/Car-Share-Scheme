@@ -1,32 +1,14 @@
-<?php $User = Null; ?>
 <?php include("include/header.php"); ?>
 
 
 
 <?php
-// set up user data, or dummy data
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-//ASSUMING:
-//user setup in header, if no user, is_null($User)
 
 $Name = "Joe Smith";
 $Credit = 54.3265;
 $Date_Registered = "29th Oct 1977";
 $Receipts = array(2, 4, 5);
 
-if(!is_null($User)) {
-	$Name = $User->Name;
-	$Name = $User->Credit;
-	$Name = $User->Date_Registered;
-	$Name = $User->Receipts;
-} else {
-	print("no user, using dummy values");
-	// no user
-}
 ?>
 
 <aside id="fh5co-hero" class="js-fullheight">
