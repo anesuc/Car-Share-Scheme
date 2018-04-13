@@ -1,4 +1,30 @@
-.Adropdown-btn {
+
+
+
+
+.Areceipt {
+	background-color:#F2F2F2;
+	width:80%;
+}
+
+.Areceipt .total {
+	background-color:#E5E5E5;
+}
+
+.A_60_40_Container {
+	margin:auto;
+	width:100%;
+}
+
+.A_60_40_Container .Aleft {
+	float:left;
+	width:60%;
+}
+.A_60_40_Container .Aright {
+	margin-left:60%;
+}
+
+/*.Adropdown-btn {
 	background-color:#3498DB;
 	color:white;
 	padding:16px;
@@ -8,9 +34,8 @@
 }
 
 .Adropdown-btn:hover .Adropdown-btn:focus {
-	background-color:#2498DB;
-	/*background-color:#2980B9;*/
-}
+	background-color:#FFFFFF;
+}*/
 
 
 .Adropdown {
