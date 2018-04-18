@@ -15,10 +15,16 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->increments('id');
-            $table->dateTime('timeAtBase');
-            $table->dateTime('timeLeaveBase');
-            $table->dateTime('timeReturnBase');
-            $table->dateTime('currentTime');
+            $table->string('plateNo');
+            $table->string('carBrand');
+            $table->interger('year');
+            $table->string('carType');
+            $table->string('carColor');
+            $table->string('carDescript');
+            $table->string('carType');
+            $table->rememberToken();
+            $table->timestamps('created_at');
+            $table->timestamps('updated_at');
 
         });
     }
