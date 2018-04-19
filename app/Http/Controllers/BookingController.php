@@ -59,4 +59,17 @@ class BookingController extends Controller
 		if ($start != $end_loc) {echo 'here4)';return false;}
 		return true;
     }
+
+	/**
+	 * @param user_id bigint (id of user)
+	 * @param start_loc bigint (id of carpark)
+	 * @param end_loc bigint (id of carpark)
+	 * @param start_time datetime
+	 * @param end_time datetime
+	 * @param car_id bigint (id of car)
+	 */
+	public static function add_booking($user_id, $start_loc, $end_loc, $start_time, $end_time, $car_id) {
+		return DB::insert("insert into Booking (Car_ID, Start_Time, End_Time, Start_Carpark_ID, End_Carpark_ID) values (?, ?, ?, ?, ?, ?)", 
+										[$car_id, $start_time, $end_time, $start_loc, $end_loc]);
+	}
 }

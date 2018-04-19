@@ -9,3 +9,4 @@ Homestead.yaml
 .*.env
 .*.swp
 TODO
+commit_msg
