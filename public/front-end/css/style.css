@@ -516,11 +516,15 @@ h1, h2, h3, h4, h5, h6, figure {
   display: block;
 }
 
-.fh5co-social-icons {
+.footer-info {
+    margin-bottom: 20px;
+}
+
+.footer-social-icons {
   margin: 0;
   padding: 0;
 }
-.fh5co-social-icons li {
+.footer-social-icons li {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -529,7 +533,7 @@ h1, h2, h3, h4, h5, h6, figure {
   zoom: 1;
   *display: inline;
 }
-.fh5co-social-icons li a {
+.footer-social-icons li a {
   display: -moz-inline-stack;
   display: inline-block;
   zoom: 1;
@@ -538,7 +542,7 @@ h1, h2, h3, h4, h5, h6, figure {
   padding-left: 10px;
   padding-right: 10px;
 }
-.fh5co-social-icons li a i {
+.footer-social-icons li a i {
   font-size: 20px;
 }
 
@@ -719,7 +723,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-product,
 #fh5co-about,
 #fh5co-contact,
-#fh5co-footer {
+footer {
   padding: 7em 0;
   clear: both;
 }
@@ -731,7 +735,7 @@ h1, h2, h3, h4, h5, h6, figure {
   #fh5co-product,
   #fh5co-about,
   #fh5co-contact,
-  #fh5co-footer {
+  footer {
     padding: 3em 0;
   }
 }
@@ -1137,41 +1141,41 @@ h1, h2, h3, h4, h5, h6, figure {
   width: 100%;
 }
 
-#fh5co-footer {
+footer {
   background: #efefef;
 }
-#fh5co-footer .fh5co-footer-links {
+footer .fh5co-footer-links {
   padding: 0;
   margin: 0;
 }
-#fh5co-footer .fh5co-footer-links li {
+footer .fh5co-footer-links li {
   padding: 0;
   margin: 0;
   list-style: none;
 }
-#fh5co-footer .fh5co-footer-links li a {
+footer .fh5co-footer-links li a {
   color: #000;
   text-decoration: none;
 }
-#fh5co-footer .fh5co-footer-links li a:hover {
+footer .fh5co-footer-links li a:hover {
   text-decoration: underline;
 }
-#fh5co-footer .fh5co-widget {
+footer .fh5co-widget {
   margin-bottom: 30px;
 }
 @media screen and (max-width: 768px) {
-  #fh5co-footer .fh5co-widget {
+  footer .fh5co-widget {
     text-align: left;
   }
 }
-#fh5co-footer .fh5co-widget h3 {
+footer .fh5co-widget h3 {
   margin-bottom: 15px;
   font-weight: bold;
   font-size: 15px;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-#fh5co-footer .copyright .block {
+footer .copyright .block {
   display: block;
 }
 
