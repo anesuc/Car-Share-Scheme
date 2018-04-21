@@ -17,6 +17,14 @@
 		</div>
 	</div>
 
+<div>
+    <div id="map" class="animate-box" data-animate-effect="fadeIn"></div>
+</div>
+
+
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHU34atHJNLRCfcIGJJKkK6FDufXOj-Sc&sensor=false"></script>
+	<script src="js/map.js"></script>
 
 <?php require_once("include/footer.php"); ?>
 
