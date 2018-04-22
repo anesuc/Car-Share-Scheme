@@ -10,18 +10,18 @@ class BookingController extends Controller
 {
     public function find_available($type,$start_loc,$end_loc,$start_time,$end_time)
     {
-    	$start_time = strtotime($start_time);
-    	$end_time = strtotime($end_time);
+    	$start_time_t = new DateTime($start_time);
+    	$end_time_t = new DateTime($end_time);
     	$cars = Car::where('type','=', $type)->get();
     	$available_cars = array();
 
 		foreach($cars as $car){
-			echo $car->id;
-			if ($this->car_available($type,$start_loc,$end_loc,$start_time,$end_time,$car->id)){array_push($available_cars,$car->id); 
-				//echo 'your code works! dope shit';
+			if ($this->car_available($type,$start_loc,$end_loc,$start_time_t,$end_time_t,$car->id)){
+				array_push($available_cars,$car->id); 
 			}
 
 		}
+		echo var_dump($available_cars);
     }
 
 
@@ -38,25 +38,23 @@ class BookingController extends Controller
 	    $bookings = Booking::where('car_id','=', $car_id)->get();
 	   	if (count($bookings)==0) return true;
 	    foreach($bookings as $booking){
-
-	    	if ($booking->start_time >= $start_time_max)echo 'test';
-	    	if ($booking->end_time <= $end_time_min && $booking->end_time <= $start_time) {
+	    	$b_start = new DateTime($booking->start_time);
+	    	$b_end = new DateTime($booking->end_time);
+	    	if ($b_end <= $end_time_min && $b_end <= $start_time) {
 	    		$end_time_min = $booking->end_time;
 	    		$end = $booking->end_loc;
 	    	}
-			if ($booking->start_time >= $start_time_max && $booking->start_time >= $end_time) {
+			if ($b_start >= $start_time_max && $b_start >= $end_time) {
 				$start_time_max = $booking->start_time;
 				$start = $booking->start_loc;
 			}
 	
-			if ($start_time <= $booking->start_time && $booking->start_time < $end_time) {return false;}
-			if ($start_time < $booking->end_time && $booking->end_time <= $end_time) {return false;}
+			if ($start_time <= $b_start && $b_start < $end_time) {return false;}
+			if ($start_time < $b_end && $b_end <= $end_time) {return false;}
 	    }
-	    echo 'start-';
-	    echo $start;
-		if ($end != $start_loc) {echo 'here3)';return false;}
+		if ($end != $start_loc) {return false;}
 		if ($start == 999) {return true;}
-		if ($start != $end_loc) {echo 'here4)';return false;}
+		if ($start != $end_loc) {return false;}
 		return true;
     }
 }
