@@ -68,7 +68,7 @@ class BookingController extends Controller
 	 * @param end_time datetime
 	 * @param car_id bigint (id of car)
 	 */
-	public static function add_booking($user_id, $start_loc, $end_loc, $start_time, $end_time, $car_id) {
+	public static function add_booking($start_loc, $end_loc, $start_time, $end_time, $car_id) {
 		return DB::insert("insert into Booking (Car_ID, Start_Time, End_Time, Start_Carpark_ID, End_Carpark_ID) values (?, ?, ?, ?, ?, ?)", 
 										[$car_id, $start_time, $end_time, $start_loc, $end_loc]);
 	}
