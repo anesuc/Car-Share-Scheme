@@ -40,6 +40,8 @@
 	<!-- Angel style -->
 	<link rel="stylesheet" href="css/Astyle.css">
 
+	<!-- Payment css -->
+	<link rel="stylesheet" href="css/payment.css">
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 
