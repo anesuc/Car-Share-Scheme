@@ -74,6 +74,15 @@ function init() {
                     '<div class="carTypeMapListing" ><b>Basic Cars: </b> '+addresses[x].basicCars+' </div>'+
                     '<div class="carTypeMapListing"><b>Average Cars: </b> '+addresses[x].averageCars+' </div>'+
                     '<div class="carTypeMapListing"><b>Premium Cars: </b> '+addresses[x].premiumCars+' </div>'+
+                   '<div class="carTypeMapListing"><b>Current selection: </b> Premium </div>'+
+                   '<div class="dropdown">'
+                        +'<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Select time'
+                            +'<span class="caret"></span></button>'
+                        +'<ul class="dropdown-menu">'
+                            +'<li><a href="#">9:30 AM</a></li>'
+                            +'<li><a href="#">10:30 AM</a></li>'
+                        +'</ul>'
+                    +'</div>'+
                     '<p  class="text-right"><a href="#" class="btn btn-primary btn-outline btn-sm">Select</a></p>'+
                     '</div>'+
                     '</div>';
