@@ -6,7 +6,7 @@
 	<title>Car Share Scheme.</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Car Sharing Site" />
-	<meta name="keywords" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+	<meta name="keywords" content="Car, Share, Scheme, Luxury, Affordable" />
 	<meta name="author" content="Anesu Chiodze, Angel English, Jacobde Bruyn, Thien Duc Thi" />
 
   	<!-- Facebook and Twitter integration -->
@@ -56,18 +56,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3 col-xs-2">
-					<div id="fh5co-logo"><a href="index.html">Car Share Scheme.</a></div>
+					<div id="fh5co-logo"><a href="index.php">Car Share Scheme.</a></div>
 				</div>
 				<div class="col-md-6 col-xs-6 text-center menu-1">
 					<ul>
-						<li class="has-dropdown">
-							<a href="product.html">Book a car</a>
-							<ul class="dropdown">
-								<li><a href="single.html">Basic</a></li>
-                                <li><a href="single.html">(Whatever this is called)</a></li>
-                                <li><a href="single.html">Premium</a></li>
-							</ul>
-						</li>
+						<li><a href="book.php">Book a car</a></li>
 						<li><a href="about.html">About</a></li>
 						<li><a href="contact.html">Contact</a></li>
 					</ul>
