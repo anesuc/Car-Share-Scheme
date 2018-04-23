@@ -12,7 +12,9 @@ $ReceiptTransactions = array("transactionA"=>32.5, "transactionB"=>45.23);
 
 
 <aside id="fh5co-hero" class="js-fullheight">
-	<div style="background-image: url(images/cars/tesla_model_x.jpg);">
+	<div class="flexslider js-fullheight">
+			<ul class="slides">
+		   	<li style="background-image: url(images/cars/tesla_model_x.jpg);">
 		<div class="container">
 			<div class="col-lg-6 col-lg-offset-2 col-lg-pull-2 col-md-7 col-md-offset-2 col-md-pull-2 col-sm-8 col-sm-offset-1 col-sm-pull-1" style="background-color:#FFFFFF">
 
@@ -35,6 +37,9 @@ $ReceiptTransactions = array("transactionA"=>32.5, "transactionB"=>45.23);
 
 			</div>
 		</div>
+        
+                </li>
+        </ul>
 	</div>
 </aside>
 
