@@ -1008,13 +1008,13 @@ footer {
 }
 
 .booking-info {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 .booking-info.booking-info-sm {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 .booking-info h2 {
-  font-size: 24px;
+  font-size: 20px;
   margin-bottom: 20px;
   line-height: 1.5;
   font-weight: bold;
@@ -1123,16 +1123,25 @@ footer {
   background: rgba(255, 255, 255, 0.3);
 }
 #book-header .btn {
-  height: 54px;
-  border: none !important;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  font-size: 16px;
-  text-transform: uppercase;
-  font-weight: 400;
-  padding-left: 50px;
-  padding-right: 50px;
+    height: 54px;
+    border: none !important;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 400;
+    padding-left: 25px;
+    padding-right: 25px;
 }
+
+.dropup, .dropdown {
+    display: inline-block;
+}
+
+.book-locatio-header {
+    padding-bottom: 2em !important;
+}
+
 #book-header .form-inline .form-group {
   width: 100% !important;
   margin-bottom: 10px;
