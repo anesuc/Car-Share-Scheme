@@ -84,6 +84,10 @@ h1, h2, h3, h4, h5, h6, figure {
   background: #d1c286;
 }
 
+.carTypeMapListing {
+    margin-bottom: 5px;
+}
+
 .fh5co-nav {
   padding: 18px 0;
   background: #fff;
@@ -717,9 +721,9 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 #fh5co-services,
-#fh5co-started,
+#book-header,
 #fh5co-testimonial,
-#fh5co-started,
+#book-header,
 #fh5co-product,
 #fh5co-about,
 #fh5co-contact,
@@ -729,9 +733,9 @@ footer {
 }
 @media screen and (max-width: 768px) {
   #fh5co-services,
-  #fh5co-started,
+  #book-header,
   #fh5co-testimonial,
-  #fh5co-started,
+  #book-header,
   #fh5co-product,
   #fh5co-about,
   #fh5co-contact,
@@ -1003,14 +1007,14 @@ footer {
   color: #d1c286;
 }
 
-.fh5co-heading {
-  margin-bottom: 5em;
+.booking-info {
+  margin-bottom: 1em;
 }
-.fh5co-heading.fh5co-heading-sm {
-  margin-bottom: 2em;
+.booking-info.booking-info-sm {
+  margin-bottom: 1em;
 }
-.fh5co-heading h2 {
-  font-size: 24px;
+.booking-info h2 {
+  font-size: 20px;
   margin-bottom: 20px;
   line-height: 1.5;
   font-weight: bold;
@@ -1018,12 +1022,12 @@ footer {
   letter-spacing: 1px;
   color: #000;
 }
-.fh5co-heading p {
+.booking-info p {
   font-size: 18px;
   line-height: 1.5;
   color: #828282;
 }
-.fh5co-heading span {
+.booking-info span {
   display: block;
   margin-bottom: 10px;
   text-transform: uppercase;
@@ -1085,17 +1089,13 @@ footer {
   text-decoration: none;
 }
 
-#fh5co-started {
-  background: #d1c286;
-}
-#fh5co-started .fh5co-heading h2 {
-  color: #fff;
+#book-header .booking-info h2 {
   margin-bottom: 20px !important;
 }
-#fh5co-started .fh5co-heading p {
+#book-header .booking-info p {
   color: rgba(255, 255, 255, 0.6);
 }
-#fh5co-started .form-control {
+#book-header .form-control {
   background: rgba(255, 255, 255, 0.2);
   border: none !important;
   color: #fff;
@@ -1105,39 +1105,48 @@ footer {
   -o-transition: 0.5s;
   transition: 0.5s;
 }
-#fh5co-started .form-control::-webkit-input-placeholder {
+#book-header .form-control::-webkit-input-placeholder {
   color: #fff;
 }
-#fh5co-started .form-control:-moz-placeholder {
+#book-header .form-control:-moz-placeholder {
   /* Firefox 18- */
   color: #fff;
 }
-#fh5co-started .form-control::-moz-placeholder {
+#book-header .form-control::-moz-placeholder {
   /* Firefox 19+ */
   color: #fff;
 }
-#fh5co-started .form-control:-ms-input-placeholder {
+#book-header .form-control:-ms-input-placeholder {
   color: #fff;
 }
-#fh5co-started .form-control:focus {
+#book-header .form-control:focus {
   background: rgba(255, 255, 255, 0.3);
 }
-#fh5co-started .btn {
-  height: 54px;
-  border: none !important;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  font-size: 16px;
-  text-transform: uppercase;
-  font-weight: 400;
-  padding-left: 50px;
-  padding-right: 50px;
+#book-header .btn {
+    height: 54px;
+    border: none !important;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 400;
+    padding-left: 25px;
+    padding-right: 25px;
 }
-#fh5co-started .form-inline .form-group {
+
+.dropup, .dropdown {
+    display: inline-block;
+}
+
+.book-locatio-header {
+    padding-bottom: 2em !important;
+}
+
+#book-header .form-inline .form-group {
   width: 100% !important;
   margin-bottom: 10px;
 }
-#fh5co-started .form-inline .form-group .form-control {
+#book-header .form-inline .form-group .form-control {
   width: 100%;
 }
 
