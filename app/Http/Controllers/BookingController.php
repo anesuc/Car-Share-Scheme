@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 use App\Booking;
 use App\Car;
 use DateTime;
@@ -26,7 +28,7 @@ class BookingController extends Controller
 
 
 
-    public static function car_available($type,$start_loc,$end_loc,$start_time,$end_time,$car_id)
+    public static function car_available($start_loc,$end_loc,$start_time,$end_time,$car_id)
     {
         $end = 999;
 	    $start = 999;
@@ -57,4 +59,26 @@ class BookingController extends Controller
 		if ($start != $end_loc) {return false;}
 		return true;
     }
+
+
+	public static function add_booking($start_loc, $end_loc, $start_time, $end_time, $car_id) {
+		
+		if($user = Auth::user()){
+			if(car_available($start_loc, $end_loc, $start_time, $end_time, $car_id)){
+				$booking = new Booking;
+		        $booking->car_id = $car_id;
+		        $booking->start_loc = $start_loc;
+		        $booking->end_loc = $end_loc;
+		        $booking->start_time = $start_time;
+		        $booking->end_time = $end_time;
+		        $booking->user_id =  Auth::user()->id;
+
+
+		        if(!$booking->save()){
+				    App::abort(500, 'Error'); //couldn't add booking
+				}
+			}
+			else App::abort(500, 'Error'); //car not available
+		}
+	}
 }

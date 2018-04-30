@@ -17,6 +17,8 @@ Use App\Booking;
  
  Route::get('available_bookings/type={type}&start_loc={start_loc}&end_loc={end_loc}&start_time={start_time}&end_time={end_time}', 'BookingController@find_available');
 
+ Route::get('add_booking/start_loc={start_loc}&end_loc={end_loc}&start_time={start_time}&end_time={end_time}&car_id={car_id}', 'BookingController@add_booking');
+
 
 
 
