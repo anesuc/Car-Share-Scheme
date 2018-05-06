@@ -1134,6 +1134,13 @@ footer {
     padding-right: 25px;
 }
 
+.time_picker {
+    height: 54px;
+    margin: 5px 10px;
+    width: 150px;
+    text-align: center;
+}
+
 .dropup, .dropdown {
     display: inline-block;
 }
@@ -1148,6 +1155,11 @@ footer {
 }
 #book-header .form-inline .form-group .form-control {
   width: 100%;
+}
+
+#map_placeholder {
+    height: 500px;
+    width: 100%;
 }
 
 footer {

@@ -2,7 +2,7 @@
 if(isset($_GET['type'])) {
     echo '<div id="book-header" class="book-locatio-header">'; // Reduce bottom margin
     
-    if ($_GET['type'] != "Basic" && $_GET['type'] != "Average" && $_GET['type'] != "Premium") {
+    if ($_GET['type'] != "Standard" && $_GET['type'] != "People Mover" && $_GET['type'] != "Luxury") {
             echo '<div class="alert alert-warning">
   <strong>Error 404.</strong> Page not found! </div>'; // If someone tries to hack the URL and input the data directly and it's wrong
             exit("");
@@ -26,18 +26,38 @@ if(isset($_GET['type'])) {
 				</div>
 			</div>
 			<div class="row animate-box">
-				<div class="col-md-8 text-center col-md-offset-2">
+				<div class="col-md-12 text-center col-md-offset-2" style="margin-left: 0;">
                     <?php
                     if(isset($_GET['type'])) {
                         echo '<div class="dropdown">'
                         .'<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> '.$_GET['type']
                             .' <span class="caret"></span></button>'
                         .'<ul class="dropdown-menu">'
-                            .'<li><a href="#">Basic</a></li>'
-                            .'<li><a href="#">Average</a></li>'
-                            .'<li><a href="#">Premium</a></li>'
+                            .'<li><a href="#">Standard</a></li>'
+                            .'<li><a href="#">People Mover</a></li>'
+                            .'<li><a href="#">Luxury</a></li>'
                         .'</ul>'
                     .'</div>';
+                        
+                        
+                    /*echo '<div class="well">'
+                        .'<div id="datetimepicker6" class="input-append date">'
+                            .'<input data-format="dd/MM/yyyy hh:mm:ss" type="text"></input>'
+                        .'<span class="add-on">'
+                            .'<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>'
+                            .'</span>'
+                        .'</div>'
+                    .'</div>';*/
+                        
+
+                     /*echo '<div class="well">'
+                        .'<div id="datetimepicker7" class="input-append date">'
+                            .'<input data-format="dd/MM/yyyy hh:mm:ss" type="text"></input>'
+                        .'<span class="add-on">'
+                            .'<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>'
+                            .'</span>'
+                        .'</div>'
+                    .'</div>';*/
                         
                         echo '<div class="dropdown">'
                         .'<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select start location '
@@ -48,10 +68,23 @@ if(isset($_GET['type'])) {
                         .'</ul>'
                     .'</div>';
                         
+                        echo '<input type = "text" placeholder="Select start time" id = "start_datetimepicker" class="time_picker">';
+                        
+                        echo '<div class="dropdown">'
+                        .'<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select end location '
+                            .'<span class="caret"></span></button>'
+                        .'<ul class="dropdown-menu">'
+                            .'<li><a href="#">RMIT University</a></li>'
+                            .'<li><a href="#">CSS</a></li>'
+                        .'</ul>'
+                    .'</div>';
+                        
+                        echo '<input type = "text" placeholder="Select end time" id = "start_datetimepicker" class="time_picker">';
+                        
                     } else {
-                        echo '<a href="book.php?type=Basic" class="btn btn-primary btn-outline btn-lg">Basic</a>'
-                        .'<a href="book.php?type=Average" class="btn btn-primary btn-outline btn-lg">Average</a>'
-                        .'<a href="book.php?type=Premium" class="btn btn-primary btn-outline btn-lg">Premium</a>';
+                        echo '<a href="book.php?type=Standard" class="btn btn-primary btn-outline btn-lg">Standard</a>'
+                        .'<a href="book.php?type=People Mover" class="btn btn-primary btn-outline btn-lg">People Mover</a>'
+                        .'<a href="book.php?type=Luxury" class="btn btn-primary btn-outline btn-lg">Luxury</a>';
                     }
                     
                     ?>
@@ -67,7 +100,31 @@ if(isset($_GET['type'])) {
 <?php
 echo '<div>'.
     '<div id="map" class="animate-box" data-animate-effect="fadeIn"></div>'.
+    '<div id="map_placeholder" class="hidden"></div>'.
 '</div>';
+
+
+                     /*echo '<div class="col-md-5">'
+                            .'<div class="form-group">'
+                            .'<div class="input-group date" id="datetimepicker6">'
+                            .'<input type="text" class="form-control" />'
+                            .'<span class="input-group-addon">'
+                            .'<span class="glyphicon glyphicon-calendar"></span>'
+                            .'</span>'
+                            .'</div>'
+                            .'</div>'
+                            .'</div>';
+                        
+                     echo '<div class="col-md-5">'
+                            .'<div class="form-group">'
+                            .'<div class="input-group date" id="datetimepicker7">'
+                            .'<input type="text" class="form-control" />'
+                            .'<span class="input-group-addon">'
+                            .'<span class="glyphicon glyphicon-calendar"></span>'
+                            .'</span>'
+                            .'</div>'
+                            .'</div>'
+                            .'</div>';*/
 
 
 if(isset($_GET['type'])) {
