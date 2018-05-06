@@ -1,6 +1,23 @@
 
 var google;
 
+setTimeout(function(){ 
+    $('.dropdown').on('show.bs.dropdown', function () {
+        console.log("dropped down opened");
+        $("#map_placeholder").removeClass("hidden"); //Using this to give some space below the dropdown menu
+        $("#map").addClass("hidden"); // Hide the map
+    }); 
+    
+    $('.dropdown').on('hide.bs.dropdown', function () {
+        console.log("dropped down closed");
+        $("#map").removeClass("hidden"); //Show the map
+        $("#map_placeholder").addClass("hidden"); //Hide the blank placeholder
+    });     
+                     }, 100);
+
+
+
+
 function init() {
     
     //Where to store our map information
