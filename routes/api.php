@@ -14,11 +14,15 @@ use Illuminate\Http\Request;
 ,$end_time,$start_location,$end_location,$type
 */
 Use App\Booking;
+Use App\CarPark;
  
  Route::get('available_bookings/type={type}&start_loc={start_loc}&end_loc={end_loc}&start_time={start_time}&end_time={end_time}', 'BookingController@find_available');
 
 
-
+ Route::get('carparks/', 'CarParkController@find_all');
+ Route::get('carpark_at/&lat={lat}&lng={lng}', 'CarParkController@find_exact');
+ Route::get('carparks_within/&lat={lat}&lng={lng}&radius={radius}', 'CarParkController@find_within');
+ Route::get('carparks_within/&lat={lat}&lng={lng}&lat2={lat2}&lng2={lng2}', 'CarParkController@find_within');
 
 
 
