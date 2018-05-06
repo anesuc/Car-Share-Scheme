@@ -59,27 +59,23 @@ if(isset($_GET['type'])) {
                         .'</div>'
                     .'</div>';*/
                         
-                        echo '<div class="dropdown">'
-                        .'<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select start location '
+                        echo '<div id="start_locations" class="dropdown">'
+                        .'<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><span class="current_selection" >Select start location </span>'
                             .'<span class="caret"></span></button>'
                         .'<ul class="dropdown-menu">'
-                            .'<li><a href="#">RMIT University</a></li>'
-                            .'<li><a href="#">CSS</a></li>'
                         .'</ul>'
                     .'</div>';
                         
                         echo '<input type = "text" placeholder="Select start time" id = "start_datetimepicker" class="time_picker">';
                         
-                        echo '<div class="dropdown">'
-                        .'<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select end location '
+                        echo '<div id="end_locations" class="dropdown">'
+                        .'<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><span class="current_selection" >Select end location </span>'
                             .'<span class="caret"></span></button>'
                         .'<ul class="dropdown-menu">'
-                            .'<li><a href="#">RMIT University</a></li>'
-                            .'<li><a href="#">CSS</a></li>'
                         .'</ul>'
                     .'</div>';
                         
-                        echo '<input type = "text" placeholder="Select end time" id = "start_datetimepicker" class="time_picker">';
+                        echo '<input type = "text" placeholder="Select end time" id = "end_datetimepicker" class="time_picker">';
                         
                     } else {
                         echo '<a href="book.php?type=Standard" class="btn btn-primary btn-outline btn-lg">Standard</a>'
@@ -99,7 +95,7 @@ if(isset($_GET['type'])) {
 
 <?php
 echo '<div>'.
-    '<div id="map" class="animate-box" data-animate-effect="fadeIn"></div>'.
+    '<div id="map" class="animate-box hide_map" data-animate-effect="fadeIn"></div>'.
     '<div id="map_placeholder" class="hidden"></div>'.
 '</div>';
 

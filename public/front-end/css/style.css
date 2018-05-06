@@ -1132,6 +1132,14 @@ footer {
     font-weight: 400;
     padding-left: 25px;
     padding-right: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+}
+
+.hide_map {
+    display: none;
 }
 
 .time_picker {

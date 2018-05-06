@@ -77,6 +77,13 @@
         controlType: 'select',
 	timeFormat: 'hh:mm tt'
     });
+      
+      $('#end_datetimepicker').datetimepicker({
+      language: 'en',
+        controlType: 'select',
+	timeFormat: 'hh:mm tt'
+    });
+      
   });
 </script>
 	<!-- Waypoints -->

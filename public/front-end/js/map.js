@@ -1,3 +1,54 @@
+/*
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+
+var data = httpGet("http://localhost/cosc2408/public/api/available_bookings/type=Standard&start_loc=2&end_loc=2&start_time=2018-04-15%2010:00:00&end_time=2018-04-15%2011:00:00");*/
+
+//data = JSON.parse(data);
+
+//console.log("data",data);
+
+
+
+//Setting sample location ready for the API
+var locations = [];
+
+var loc1 = {
+    id: 1,
+    name: "28/24-28 Gladstone St, Moonee Ponds VIC 3039",
+    lat: -37.768631,
+    long: 144.922916
+}
+
+var loc2 = {
+    id: 2,
+    name: "4 Sturt St, Southbank VIC 3004",
+    lat: -37.822302,
+    long: 144.967775
+}
+
+var loc3 = {
+    id: 3,
+    name: "700 Collins St, Melbourne VIC 3000",
+    lat: -37.819500,
+    long: 144.950840
+}
+
+
+
+locations.push(loc1);
+locations.push(loc2);
+locations.push(loc3);
+
+
+
+
+
 
 var google;
 
@@ -12,10 +63,39 @@ setTimeout(function(){
         console.log("dropped down closed");
         $("#map").removeClass("hidden"); //Show the map
         $("#map_placeholder").addClass("hidden"); //Hide the blank placeholder
-    });     
+        checkAllInput();
+    });
+    
+    $( ".time_picker" ).change(function() {
+        console.log( "Handler for .change() called." );
+        checkAllInput();
+    });
+    
+    for (var i = 0; i < locations.length; i++) {
+        $("#start_locations > .dropdown-menu").append('<li><a href="#" onclick="setStartLocation('+i+')">'+locations[i].name+'</a></li>');
+        $("#end_locations > .dropdown-menu").append('<li><a href="#" onclick="setEndLocation('+i+')">'+locations[i].name+'</a></li>');
+    }
                      }, 100);
 
+function setStartLocation(locationPosition) {
+    console.log("set location triggered")
+    $("#start_locations > button > .current_selection").text(locations[locationPosition].name);
+    $("#start_locations > button > .caret").addClass("hidden");
+}
 
+function setEndLocation(locationPosition) {
+    console.log("set location triggered")
+    $("#end_locations > button > .current_selection").text(locations[locationPosition].name);
+    $("#end_locations > button > .caret").addClass("hidden");
+}
+
+function checkAllInput() {
+    console.log('$( "#start_datetimepicker" ).text()',$( "#start_datetimepicker" ).val());
+    console.log('$( "#end_datetimepicker" ).text()',$( "#end_datetimepicker" ).val());
+    
+    if ($("#end_locations > button > .caret").hasClass("hidden") && $("#start_locations > button > .caret").hasClass("hidden") && $( "#start_datetimepicker" ).val() != "" && $( "#end_datetimepicker" ).val() != "")
+        $("#map").removeClass("hide_map");
+}
 
 
 function init() {
@@ -87,19 +167,11 @@ function init() {
                    '</div>'+
                    '<h1 id="firstHeading" class="firstHeading">'+addresses[x].locationName+'</h1>'+
                    '<div id="bodyContent" class="text-left">'+
-                    '<p>'+addresses[x].locationSummary+'</p>'+
-                    '<div class="carTypeMapListing" ><b>Basic Cars: </b> '+addresses[x].basicCars+' </div>'+
-                    '<div class="carTypeMapListing"><b>Average Cars: </b> '+addresses[x].averageCars+' </div>'+
-                    '<div class="carTypeMapListing"><b>Premium Cars: </b> '+addresses[x].premiumCars+' </div>'+
-                   '<div class="carTypeMapListing"><b>Current selection: </b> Premium </div>'+
-                   '<div class="dropdown">'
-                        +'<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Select time'
-                            +'<span class="caret"></span></button>'
-                        +'<ul class="dropdown-menu">'
-                            +'<li><a href="#">9:30 AM</a></li>'
-                            +'<li><a href="#">10:30 AM</a></li>'
-                        +'</ul>'
-                    +'</div>'+
+                   '<div class="carTypeMapListing"><b>Premium </b>selection available at this location</div>'+
+                   '<div style = "margin: 20px 0;">'+
+                   '<a href="#" class="btn btn-primary btn-sm">Toyota camry</a> '+
+                   '<a href="#" class="btn btn-primary btn-sm">Toyota camry</a> '+
+                   '</div>'+
                     '<p  class="text-right"><a href="#" class="btn btn-primary btn-outline btn-sm">Select</a></p>'+
                     '</div>'+
                     '</div>';
