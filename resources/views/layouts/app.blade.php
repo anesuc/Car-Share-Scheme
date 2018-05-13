@@ -13,6 +13,44 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
 
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="../front-end/css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="../front-end/css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="../front-end/css/bootstrap.css">
+        
+    <!-- Jquery UI  -->
+    <link rel="stylesheet" href="../front-end/css/jquery-ui.css">        
+
+    <!-- Flexslider  -->
+    <link rel="stylesheet" href="../front-end/css/flexslider.css">
+
+    <!-- Owl Carousel  -->
+    <link rel="stylesheet" href="../front-end/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../front-end/css/owl.theme.default.min.css">
+
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="../front-end/css/style.css">
+
+    <!-- Angel style -->
+    <link rel="stylesheet" href="../front-end/css/Astyle.css">
+        
+    <!-- Glyphicons style -->
+    <link href="../front-end/css/bootstrap.icon-large.min.css" rel="stylesheet">
+        
+        <!-- Time picker -->
+    <link rel="stylesheet" href="../front-end/css/jquery-ui-timepicker-addon.css">
+        
+        <link rel="stylesheet" type="text/css" media="screen"
+     href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+  </head>
+
+    <!-- Modernizr JS -->
+    <script src="../front-end/js/modernizr-2.6.2.min.js"></script>
+
+
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -82,6 +120,63 @@
     </div>
 
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <script src="../front-end/js/app.js"></script>
+
+    <!-- jQuery -->
+    <script src="../front-end/js/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="../front-end/js/jquery.easing.1.3.js"></script>
+    <!-- jQuery UI -->
+    <script src="../front-end/js/jquery-ui.min.js"></script>
+    <!-- Moment JS -->
+    <script src="../front-end/js/moment.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../front-end/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Timepicker -->
+    <!--<script src="js/bootstrap-datetimepicker.min.js"></script>-->
+    <!-- Timepicker -->
+    <script src="../front-end/js/jquery-ui-timepicker-addon.js"></script>
+
+    <script type="text/javascript">
+    /*$(function () {
+        $('#datetimepicker6').datetimepicker();
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    });*/
+</script>
+
+<script type="text/javascript">
+  $(function() {
+    $('#start_datetimepicker').datetimepicker({
+      language: 'en',
+        controlType: 'select',
+    timeFormat: 'hh:mm tt'
+    });
+      
+      $('#end_datetimepicker').datetimepicker({
+      language: 'en',
+        controlType: 'select',
+    timeFormat: 'hh:mm tt'
+    });
+      
+  });
+</script>
+    <!-- Waypoints -->
+    <script src="../front-end/js/jquery.waypoints.min.js"></script>
+    <!-- Carousel -->
+    <script src="../front-end/js/owl.carousel.min.js"></script>
+    <!-- countTo -->
+    <script src="../front-end/js/jquery.countTo.js"></script>
+    <!-- Flexslider -->
+    <script src="../front-end/js/jquery.flexslider-min.js"></script>
+    <!-- Main -->
+    <script src="../front-end/js/main.js"></script>
 </body>
 </html>

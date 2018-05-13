@@ -9,6 +9,8 @@
 			<ul class="slides">
 		   	<li style="background-image: url(images/cars/tesla_model_x.jpg);">
 		   		<div class="overlay-gradient"></div>
+
+		   		
 		   		<div class="container">
 		   			<div class="col-md-6 col-md-offset-4 col-md-pull-1 js-fullheight slider-text">
 		   				<div class="slider-text-inner">

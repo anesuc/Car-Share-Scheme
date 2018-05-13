@@ -1,12 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+<aside id="fh5co-hero" class="js-fullheight">
+        <div class="flexslider js-fullheight">
+            <ul class="slides">
+            <li style="background-image: url(../front-end/images/cars/tesla_model_x.jpg);">
+                
+
+<div class="container" >
+
+        <div class="col-md-6 col-md-offset-4 col-md-pull-1 js-fullheight slider-text">
+                        <div class="slider-text-inner">
+                            <div class="desc" style="margin: auto;">
+
+
                 <div class="panel-heading">Register</div>
-                <div class="panel-body">
+                <div class="panel-body" > 
+                   
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 
@@ -14,7 +24,7 @@
                             <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" placeholder="Username"  aria-label="Username" aria-describedby="basic-addon1" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -28,7 +38,7 @@
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="email" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" class="form-control" name="email" value="{{ old('email') }}" required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -40,7 +50,7 @@
 
 
                         <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
-                            <label class="input">Address:</label> </br>
+                            <label class="input" >Address:</label> </br>
                             <div class="col-md-6">
                                 @include('layouts.googleApi')
 
@@ -48,11 +58,26 @@
                         </div>    
 
 
+                        <div class="form-group{{ $errors->has('license') ? ' has-error' : '' }}">
+                            <label for="license" class="col-md-4 control-label">License</label>
+
+                            <div class="col-md-6">
+                                <input id="license" type="text" class="form-control"  placeholder="License number" aria-label="licenseNo" aria-describedby="basic-addon1" name="license" required>
+
+                                @if ($errors->has('license'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('license') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                <input id="password" type="password"  placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" class="form-control" name="password" required>
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -62,11 +87,13 @@
                             </div>
                         </div>
 
+                        
+
                         <div class="form-group">
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <input id="password-confirm" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
 
@@ -83,4 +110,9 @@
         </div>
     </div>
 </div>
+</li>
+
+            </ul>
+        </div>
+    </aside>
 @endsection
