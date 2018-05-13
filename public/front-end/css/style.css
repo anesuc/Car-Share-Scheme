@@ -356,7 +356,6 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-hero .flexslider .slider-text > .slider-text-inner .desc {
   background: rgba(255, 255, 255, 0.9);
   padding: 40px;
-  width: 600px;
 }
 #fh5co-hero .flexslider .slider-text > .slider-text-inner .desc .price {
   font-size: 14px;
@@ -1716,6 +1715,10 @@ footer .copyright .block {
 
 .js .animate-box {
   opacity: 0;
+}
+
+.selected, .btn-primary.active:hover {
+        background-color: #286090 !mportant;
 }
 
 /*# sourceMappingURL=style.css.map */

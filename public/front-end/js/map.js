@@ -1,3 +1,4 @@
+var modelName;
 
 // Replcase all prtotype
 String.prototype.replaceAll = function(search, replacement) {
@@ -144,6 +145,42 @@ function httpGet(theUrl)
     return xmlHttp.responseText;
 }
 
+function makeBooking() {
+    var start_location;
+    var start_location_name = $("#start_locations > button > .current_selection").text();
+    var start_location_id = -1;
+    var start_time = $( "#start_datetimepicker" ).val().replaceAll("/","-");
+    var end_location;
+    var end_location_name = $("#end_locations > button > .current_selection").text();
+    var end_location_id = -1;
+    var end_time = $( "#end_datetimepicker" ).val().replaceAll("/","-");
+    
+    for (var i = 0; i < locations.length; i++) {
+        if (locations[i].name == start_location_name){
+            start_location = locations[i];
+            start_location_id = locations[i].id;
+            break;
+        }
+    }
+    
+    for (var i = 0; i < locations.length; i++) {
+        if (locations[i].name == end_location_name){
+            end_location = locations[i];
+            end_location_id = locations[i].id;
+            break;
+        }
+    }
+    
+    window.location.href = "payment.php?type=Standard&start_loc="+start_location_id+"&end_loc="+end_location_id+"&start_time="+start_time+"&end_time="+end_time+"&model="+modelName;
+}
+
+function selectModel(selectedDiv,model_name) {
+    modelName = model_name;
+    console.log("selected",$("#makeBooking"));
+    $(".makeBooking").removeClass("hidden");
+    $(selectedDiv).addClass("active");
+}
+
 function setStartEndLocation() {
     var start_location;
     var start_location_name = $("#start_locations > button > .current_selection").text();
@@ -203,9 +240,9 @@ function setStartEndLocation() {
                    '<div style = "margin: 20px 0;">';
                     if (locations[x].id == start_location_id) //Temporary, will make it auto update
                     for (var j = 0; j < availableCars.length; j++)
-                        contentString += '<a href="#" class="btn btn-primary btn-sm">'+availableCars[j].title+'</a> ';
+                        contentString += '<a href="#" onclick="selectModel(this,&quot;'+availableCars[j].title+'&quot;)" class="btn btn-primary btn-sm">'+availableCars[j].title+'</a> ';
                    contentString += '</div>'+
-                    '<p  class="text-right"><a href="#" class="btn btn-primary btn-outline btn-sm">Select</a></p>'+
+                    '<p  class="makeBooking text-right hidden"><a href="#" onclick="makeBooking()" class="btn btn-primary btn-outline btn-sm">Select</a></p>'+
                     '</div>'+
                     '</div>';
         

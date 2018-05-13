@@ -29,7 +29,7 @@ if(isset($_GET['type'])) {
 				<div class="col-md-12 text-center col-md-offset-2" style="margin-left: 0;">
                     <?php
                     if(isset($_GET['type'])) {
-                        echo '<div class="dropdown">'
+                        echo '<div id="car_type" type="'.$_GET['type'].'" class="dropdown">'
                         .'<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> '.$_GET['type']
                             .' <span class="caret"></span></button>'
                         .'<ul class="dropdown-menu">'
