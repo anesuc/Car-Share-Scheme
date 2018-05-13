@@ -1,10 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+<aside id="fh5co-hero" class="js-fullheight">
+        <div class="flexslider js-fullheight">
+            <ul class="slides">
+            <li style="background-image: url(../front-end/images/cars/tesla_model_x.jpg);">
+                
+
+<div class="container" >
+
+        <div class="col-md-6 col-md-offset-4 col-md-pull-1 js-fullheight slider-text">
+                        <div class="slider-text-inner">
+                            <div class="desc" style="margin: auto;">
+
+
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
@@ -60,9 +69,14 @@
                             </div>
                         </div>
                     </form>
-                </div>
+               </div>
             </div>
         </div>
     </div>
 </div>
+</li>
+
+            </ul>
+        </div>
+    </aside>
 @endsection

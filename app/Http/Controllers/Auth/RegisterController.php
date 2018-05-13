@@ -57,6 +57,7 @@ class RegisterController extends Controller
         'postal_code' => 'required|digits_between:1,4',
         'country' => 'required|max:255',
         'password' => 'required|min:6|confirmed',
+        'license' => 'required|digits_between:1,9',
         ]);
     }
 
@@ -79,6 +80,7 @@ class RegisterController extends Controller
         'postal_code' => (int)$data['postal_code'],
         'password' => bcrypt($data['password']),
         'admin' => 0,
+        'license' =>  (int)$data['license'],
         ]);
     }
 }
