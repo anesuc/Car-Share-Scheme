@@ -153,8 +153,8 @@ function makeBooking() {
 
 function selectModel(selectedDiv,model_name) {
     modelName = model_name;
-    console.log("selected",$("#makeBooking"));
-    $(".makeBooking").removeClass("hidden");
+    $(".makeBooking").removeClass("notActiveOpacity");
+    $(".cars").removeClass("active");
     $(selectedDiv).addClass("active");
 }
 
@@ -238,15 +238,17 @@ function setStartEndLocation() {
                    contentString += '<div style = "margin: 20px 0;">';
                     if (locations[x].id == start_location_id) { //Temporary, will make it auto update
                     for (var j = 0; j < availableCars.length; j++)
-                        contentString += '<a href="#" onclick="selectModel(this,&quot;'+availableCars[j].title+'&quot;)" class="btn btn-primary btn-sm">'+availableCars[j].title+'</a> ';
+                        contentString += '<a href="#" onclick="selectModel(this,&quot;'+availableCars[j].title+'&quot;)" class="cars btn btn-primary btn-sm">'+availableCars[j].title+'</a> ';
                         
                         if (availableCars.length == 0)
                             contentString += '<div>No available <b>'+$('#car_type').attr("type")+'</b> cars at this location.</b></div>';
                     }
                    contentString += '</div>'+
-                    '<p  class="makeBooking text-right hidden"><a href="#" onclick="makeBooking()" class="btn btn-primary btn-outline btn-sm">Select</a></p>'+
+                    '<p  class="makeBooking text-right notActiveOpacity"><a href="#" onclick="makeBooking()" class="btn btn-primary btn-outline btn-sm">Select</a></p>'+
                     '</div>'+
                     '</div>';
+            
+            
         
         marker.infoWindow =  new google.maps.InfoWindow({
           content: contentString
@@ -272,6 +274,10 @@ function setStartEndLocation() {
         }
             
             markers.push(marker);
+            
+            $('a.btn-primary').click(function(e) {
+                e.preventDefault(); //prevent from scrolling to the top
+            });
 
     }
     }

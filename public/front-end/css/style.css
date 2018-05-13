@@ -1703,6 +1703,10 @@ footer .copyright .block {
   padding-bottom: 2em !important;
 }
 
+.notActiveOpacity {
+    opacity: 0;
+}
+
 .fh5co-loader {
   position: fixed;
   left: 0px;
@@ -1717,7 +1721,7 @@ footer .copyright .block {
   opacity: 0;
 }
 
-.selected, .btn-primary.active:hover {
+.active, .btn-primary.active:hover {
         background-color: #286090 !mportant;
 }
 
