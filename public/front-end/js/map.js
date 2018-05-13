@@ -1,17 +1,3 @@
-/*
-function httpGet(theUrl)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
-
-var data = httpGet("http://localhost/cosc2408/public/api/available_bookings/type=Standard&start_loc=2&end_loc=2&start_time=2018-04-15%2010:00:00&end_time=2018-04-15%2011:00:00");*/
-
-//data = JSON.parse(data);
-
-//console.log("data",data);
 
 // Replcase all prtotype
 String.prototype.replaceAll = function(search, replacement) {
@@ -57,25 +43,6 @@ locations.push(loc3);
 
 
 var google;
-
-//setTimeout(function(){ 
-    /*$('.dropdown').on('show.bs.dropdown', function () {
-        console.log("dropped down opened");*/
-        
-        /*
-function httpGet(theUrl)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
-
-var data = httpGet("http://localhost/cosc2408/public/api/available_bookings/type=Standard&start_loc=2&end_loc=2&start_time=2018-04-15%2010:00:00&end_time=2018-04-15%2011:00:00");*/
-
-//data = JSON.parse(data);
-
-//console.log("data",data);
 
 // Replcase all prtotype
 String.prototype.replaceAll = function(search, replacement) {
@@ -205,9 +172,7 @@ function setStartEndLocation() {
     
     console.log("end_time",end_time);
     
-    var data = httpGet("http://localhost/cosc2408/public/api/available_bookings/type=Standard&start_loc="+start_location_id+"&end_loc="+end_location_id+"&start_time="+start_time+"&end_time="+end_time);
-    
-    console.log("ll","http://localhost/cosc2408/public/api/available_bookings/type=Standard&start_loc="+start_location_id+"&end_loc="+end_location_id+"&start_time="+start_time+"&end_time="+end_time)
+    var data = httpGet("../api/available_bookings/type=Standard&start_loc="+start_location_id+"&end_loc="+end_location_id+"&start_time="+start_time+"&end_time="+end_time);
     
     var availableCars = JSON.parse(data);
         
