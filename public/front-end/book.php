@@ -30,12 +30,12 @@ if(isset($_GET['type'])) {
                     <?php
                     if(isset($_GET['type'])) {
                         echo '<div id="car_type" type="'.$_GET['type'].'" class="dropdown">'
-                        .'<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> '.$_GET['type']
-                            .' <span class="caret"></span></button>'
+                        .'<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> <span class="current_selection" >'.$_GET['type']
+                            .'</span> <span class="caret"></span></button>'
                         .'<ul class="dropdown-menu">'
-                            .'<li><a href="#">Standard</a></li>'
-                            .'<li><a href="#">People Mover</a></li>'
-                            .'<li><a href="#">Luxury</a></li>'
+                            .'<li><a href="#" onclick="changeCarType(`Standard`)">Standard</a></li>'
+                            .'<li><a href="#" onclick="changeCarType(`People Mover`)">People Mover</a></li>'
+                            .'<li><a href="#" onclick="changeCarType(`Luxury`)">Luxury</a></li>'
                         .'</ul>'
                     .'</div>';
                         
