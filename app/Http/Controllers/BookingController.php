@@ -19,11 +19,13 @@ class BookingController extends Controller
 
 		foreach($cars as $car){
 			if ($this->car_available($type,$start_loc,$end_loc,$start_time_t,$end_time_t,$car->id)){
-				array_push($available_cars,$car->id); 
+				array_push($available_cars,$car); 
+				
 			}
 
 		}
-		echo var_dump($available_cars);
+		$json = json_encode($available_cars);
+		echo $json;
     }
 
 
