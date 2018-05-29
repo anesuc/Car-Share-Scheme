@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,8 +21,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
-        return view('home');
+        if($user = Auth::user())
+        {
+            $admin = Auth::user()->admin;
+            if($admin==2){ 
+                return redirect('site_control');
+            }
+        }
+        return redirect('booking');
     }
+
+
 }

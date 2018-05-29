@@ -17,8 +17,9 @@ Use App\Booking;
 Use App\CarPark;
  
  Route::get('available_bookings/type={type}&start_loc={start_loc}&end_loc={end_loc}&start_time={start_time}&end_time={end_time}', 'BookingController@find_available');
+ Route::get('add_booking/start_loc={start_loc}&end_loc={end_loc}&start_time={start_time}&end_time={end_time}&car_id={car_id}&access_token={access_token}', 'BookingController@add_booking');
 
- Route::get('add_booking/start_loc={start_loc}&end_loc={end_loc}&start_time={start_time}&end_time={end_time}&car_id={car_id}', 'BookingController@add_booking');
+
 
 
  Route::get('carparks/', 'CarParkController@find_all');
@@ -30,6 +31,6 @@ Use App\CarPark;
 
 
 
-Route::get('/user', function (Request $request) {
+Route::get('/user', function (Request $request) { 
     return $request->user();
 })->middleware('auth:api');

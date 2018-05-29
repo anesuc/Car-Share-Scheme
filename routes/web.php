@@ -17,5 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+
+Route::get('/logout', 'AdminController@logoutUser');
+
+
+Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
+Route::get('booking', 'BookingController@index');
 //Route::get('/available_bookings', 'BookingController@find_available');

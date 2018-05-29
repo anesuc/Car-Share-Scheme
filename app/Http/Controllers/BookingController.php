@@ -10,6 +10,13 @@ use App\Car;
 use DateTime;
 class BookingController extends Controller
 {
+    
+	public function index()
+	{
+        return view('book');
+    }
+
+
     public function find_available($type,$start_loc,$end_loc,$start_time,$end_time)
     {
     	$start_time_t = new DateTime($start_time);
@@ -18,7 +25,7 @@ class BookingController extends Controller
     	$available_cars = array();
 
 		foreach($cars as $car){
-			if ($this->car_available($type,$start_loc,$end_loc,$start_time_t,$end_time_t,$car->id)){
+			if ($this->car_available($start_loc,$end_loc,$start_time_t,$end_time_t,$car->id)){
 				array_push($available_cars,$car); 
 				
 			}
@@ -40,8 +47,12 @@ class BookingController extends Controller
 
 
 	    $bookings = Booking::where('car_id','=', $car_id)->get();
-	   	if (count($bookings)==0) return true;
+
+	   
+	    if (count($bookings)==1 &&$bookings[0]->end_loc == $start_loc) return true;
+	   	//if (count($bookings)==0) return true;
 	    foreach($bookings as $booking){
+	    	
 	    	$b_start = new DateTime($booking->start_time);
 	    	$b_end = new DateTime($booking->end_time);
 	    	if ($b_end <= $end_time_min && $b_end <= $start_time) {
@@ -63,24 +74,43 @@ class BookingController extends Controller
     }
 
 
-	public static function add_booking($start_loc, $end_loc, $start_time, $end_time, $car_id) {
+	public static function add_booking($start_loc, $end_loc, $start_time, $end_time, $car_id, $access_token) {
 		
-		if($user = Auth::user()){
-			if(car_available($start_loc, $end_loc, $start_time, $end_time, $car_id)){
-				$booking = new Booking;
-		        $booking->car_id = $car_id;
-		        $booking->start_loc = $start_loc;
-		        $booking->end_loc = $end_loc;
-		        $booking->start_time = $start_time;
-		        $booking->end_time = $end_time;
-		        $booking->user_id =  Auth::user()->id;
+		
+		$users = User::where('access_token','=', $access_token)->get();
+		if(count($users)==1){
+			foreach($users as $user){
+				$receipt = rand ( 1000000000 , 2000000000 );
+				if(BookingController::car_available($start_loc, $end_loc, $start_time, $end_time, $car_id)){
+					$booking = new Booking;
+			        $booking->car_id = $car_id;
+			        $booking->start_loc = $start_loc;
+			        $booking->end_loc = $end_loc;
+			        $booking->start_time = $start_time;
+			        $booking->end_time = $end_time;
+			        $booking->receipt = $receipt;
+			        $booking->user_id =  $user->id;
 
 
-		        if(!$booking->save()){
-				    App::abort(500, 'Error'); //couldn't add booking
+			        if(!$booking->save()){
+					    echo "couldn't add booking";
+					}
+					else {
+						echo $receipt;
+					}
 				}
+				else echo "car not available";			
 			}
-			else App::abort(500, 'Error'); //car not available
+		}
+		else echo "not logged in"; 
+	}
+
+	public function test() {
+		
+		$user_id =  Auth::user();
+		echo json_encode($user_id);
+		if($user = Auth::user()){
+			echo "done";
 		}
 	}
 }
