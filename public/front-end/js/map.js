@@ -1,6 +1,5 @@
 var modelName;
 var markers = [];
-var selectedCarID = -1;
 
 // Replcase all prtotype
 String.prototype.replaceAll = function(search, replacement) {
@@ -149,19 +148,14 @@ function makeBooking() {
         }
     }
     
-    window.location.href = "payment.php?type="+car_type+"&start_loc="+start_location_id+"&end_loc="+end_location_id+"&start_time="+start_time+"&end_time="+end_time+"&model="+selectedCarID;
+    window.location.href = "payment.php?type="+car_type+"&start_loc="+start_location_id+"&end_loc="+end_location_id+"&start_time="+start_time+"&end_time="+end_time+"&model="+modelName;
 }
 
-function selectModel(selectedDiv,model_name,modelID) {
+function selectModel(selectedDiv,model_name) {
     modelName = model_name;
-    selectedCarID = modelID;
     $(".makeBooking").removeClass("notActiveOpacity");
     $(".cars").removeClass("active");
     $(selectedDiv).addClass("active");
-
-    console.log("selectedCarID",selectedCarID);
-
-    $(".tempID").text(selectedCarID);
 }
 
 function setStartEndLocation() {
@@ -192,8 +186,6 @@ function setStartEndLocation() {
     }
     
     console.log("end_time",end_time);
-
-    console.log("server response","/api/available_bookings/type="+car_type+"&start_loc="+start_location_id+"&end_loc="+end_location_id+"&start_time="+start_time+"&end_time="+end_time)
     
     var data = httpGet("../api/available_bookings/type="+car_type+"&start_loc="+start_location_id+"&end_loc="+end_location_id+"&start_time="+start_time+"&end_time="+end_time);
     
@@ -246,13 +238,13 @@ function setStartEndLocation() {
                    contentString += '<div style = "margin: 20px 0;">';
                     if (locations[x].id == start_location_id) { //Temporary, will make it auto update
                     for (var j = 0; j < availableCars.length; j++)
-                        contentString += '<a href="#" onclick="selectModel(this,&quot;'+availableCars[j].title+'&quot;,'+availableCars[j].id+')" class="cars btn btn-primary btn-sm">'+availableCars[j].title+'</a> ';
+                        contentString += '<a href="#" onclick="selectModel(this,&quot;'+availableCars[j].title+'&quot;)" class="cars btn btn-primary btn-sm">'+availableCars[j].title+'</a> ';
                         
                         if (availableCars.length == 0)
                             contentString += '<div>No available <b>'+$('#car_type').attr("type")+'</b> cars at this location.</b></div>';
                     }
                    contentString += '</div>'+
-                    '<p  class="makeBooking text-right notActiveOpacity"><a id="tempID" href="#" onclick="makeBooking()" class="btn btn-primary btn-outline btn-sm">Select</a></p>'+
+                    '<p  class="makeBooking text-right notActiveOpacity"><a href="#" onclick="makeBooking()" class="btn btn-primary btn-outline btn-sm">Select</a></p>'+
                     '</div>'+
                     '</div>';
             

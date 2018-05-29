@@ -1,95 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+    <!-- Styles -->
+    <link href="/css/app.css" rel="stylesheet">
 
-            .full-height {
-                height: 100vh;
-            }
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="../front-end/css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="../front-end/css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="../front-end/css/bootstrap.css">
+        
+    <!-- Jquery UI  -->
+    <link rel="stylesheet" href="../front-end/css/jquery-ui.css">        
 
-            .position-ref {
-                position: relative;
-            }
+    <!-- Flexslider  -->
+    <link rel="stylesheet" href="../front-end/css/flexslider.css">
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+    <!-- Owl Carousel  -->
+    <link rel="stylesheet" href="../front-end/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../front-end/css/owl.theme.default.min.css">
 
-            .content {
-                text-align: center;
-            }
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="../front-end/css/style.css">
 
-            .title {
-                font-size: 84px;
-            }
+    <!-- Angel style -->
+    <link rel="stylesheet" href="../front-end/css/Astyle.css">
+        
+    <!-- Glyphicons style -->
+    <link href="../front-end/css/bootstrap.icon-large.min.css" rel="stylesheet">
+        
+        <!-- Time picker -->
+    <link rel="stylesheet" href="../front-end/css/jquery-ui-timepicker-addon.css">
+        
+        <link rel="stylesheet" type="text/css" media="screen"
+     href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+  </head>
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+    <!-- Modernizr JS -->
+    <script src="../front-end/js/modernizr-2.6.2.min.js"></script>
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
+
+    <!-- Scripts -->
+    <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
+    </script>
+</head>
+<body>
+    <div id="page">
+        
+    <nav class="fh5co-nav" role="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-xs-2">
+                    <div id="fh5co-logo"><a href="../front-end/index.php">Car Share Scheme.</a></div>
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <div class="col-md-6 col-xs-6 text-center menu-1">
+                    <ul>
+                        <li><a href="../front-end/book.php">Book a car</a></li>
+                        <li><a href="../front-end/about.html">About</a></li>
+                        <li><a href="../front-end/contact.html">Contact</a></li>
+                    </ul>
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="col-md-3 col-xs-4 text-right hidden-xs menu-2">
+                    <ul>
+                        <li><a href="{{ url('/login') }}">Login</a></li>
+                        <li class="shopping-cart"><a href="#" class="cart"><span><small>0</small><i class="icon-shopping-cart"></i></span></a></li>
+                    </ul>
                 </div>
             </div>
+            
         </div>
+    </nav>
+
+
+
+
+
+    <aside id="fh5co-hero" class="js-fullheight">
+        <div class="flexslider js-fullheight">
+            <ul class="slides">
+            <li style="background-image: url(../front-end/images/cars/tesla_model_x.jpg);">
+                <div class="overlay-gradient"></div>
+                <div class="container">
+                    <div class="col-md-6 col-md-offset-3 col-md-pull-3 js-fullheight slider-text">
+                        <div class="slider-text-inner">
+                            <div class="desc">
+                                <span class="price">$50/hr</span>
+                                <h2>Premium Cars</h2>
+                                <p>A great selection of premium cars such as the Tesla Model X Blah blah blah.</p>
+                                <p><a href="../front-end/single.html" class="btn btn-primary btn-outline btn-lg">Book Now</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li style="background-image: url(../front-end/images/cars/toyota_camry_ascent_hybrid.jpg);">
+                <div class="container">
+                    <div class="col-md-6 col-md-offset-3 col-md-pull-3 js-fullheight slider-text">
+                        <div class="slider-text-inner">
+                            <div class="desc">
+                                <span class="price">$30/hr</span>
+                                <h2>Basic</h2>
+                                <p>Need a car just to get from point A to B? We've got you covered! blah blah blah</p>
+                                <p><a href="../front-end/single.html" class="btn btn-primary btn-outline btn-lg">Book Now</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            </ul>
+        </div>
+    </aside>
+      <!-- Scripts -->
+    <script src="../front-end/js/app.js"></script>
+    <!-- jQuery -->
+    <script src="../front-end/js/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="../front-end/js/jquery.easing.1.3.js"></script>
+    <!-- jQuery UI -->
+    <script src="../front-end/js/jquery-ui.min.js"></script>
+    <!-- Moment JS -->
+    <script src="../front-end/js/moment.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../front-end/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Timepicker -->
+    <!--<script src="js/bootstrap-datetimepicker.min.js"></script>-->
+    <!-- Timepicker -->
+    <script src="../front-end/js/jquery-ui-timepicker-addon.js"></script>
     </body>
 </html>

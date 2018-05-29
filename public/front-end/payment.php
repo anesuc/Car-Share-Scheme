@@ -1,20 +1,67 @@
 <?php require_once("include/header.php"); ?>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+    var getUrl = new URLSearchParams(document.location.search.substring(1));
+    
+    var type = getUrl.get("type");
+    var start_loc = getUrl.get("stat_loc");
+    var end_loc = getUrl.get("end_loc");
+    var start_time = getUrl.get("start_time");
+    var end_time = getUrl.get("end_time");
+    var model = getUrl.get("model");
+    document.getElementById("test").value="hi";
+    document.write(type);
+    document.write(stat_loc);
+    document.write(end_loc);
+    document.write(end_time);
+    document.write(model);
+
+
+    
+</script>
+
+
+<script type="text/javascript">
+    
+    $(document).ready(function(){
+    $("form").submit(function(){
+       var jsonURL = 'api/add_booking/start_loc='+start_loc+'&end_loc='+end_loc+'&start_time='+start_time+'&end_time='+end_time+'&car_id='+model;
+
+
+        $.getJSON(jsonURL, function(data) {
+                    
+            $.each(data, function(key, value){    
+                
+    });
+
+});
+    });});
+
+</script>
+<!-- 
+ <?php 
+
+ $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+ $parts = parse_url($url);
+// parse_str($parts['query'], $query);
+// echo $query['type'];
+ 
+?> -->
 
 
 
-
-	<aside id="fh5co-hero" class="js-fullheight">
-		<div class="flexslider js-fullheight">
-			<ul class="slides">
-		   	<li style="background-image: url(images/cars/tesla_model_x.jpg);">
-		   		<div class="overlay-gradient"></div>
-		   		<div class="container">
-		   			<div class="col-md-6 col-md-offset-4 col-md-pull-1 js-fullheight slider-text">
-		   				<div class="slider-text-inner">
-		   					<div class="desc" style="margin: auto;">
-
-		   						<!-- CREDIT CARD FORM STARTS HERE -->
+    <aside id="fh5co-hero" class="js-fullheight">
+        <div class="flexslider js-fullheight">
+            <ul class="slides">
+            <li style="background-image: url(images/cars/tesla_model_x.jpg);">
+                <div class="overlay-gradient"></div>
+                <div class="container">
+                    <div class="col-md-6 col-md-offset-4 col-md-pull-1 js-fullheight slider-text">
+                        <div class="slider-text-inner">
+                            <div class="desc" style="margin: auto;">
+          
+                                <!-- CREDIT CARD FORM STARTS HERE -->
             <div class="panel panel-default credit-card-box">
                 <div class="panel-heading display-table" >
                     <div class="row display-tr" >
@@ -25,7 +72,7 @@
                     </div>                    
                 </div>
                 <div class="panel-body">
-                    <form role="form" id="payment-form" method="POST" action="javascript:void(0);">
+                    <form role="form" id="payment-form"   action="">
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group">
@@ -74,7 +121,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <button class="subscribe btn btn-success btn-lg btn-block" type="button">Pay</button>
+                                <button class="subscribe btn btn-success btn-lg btn-block" type="submit">Pay</button>
                             </div>
                         </div>
                         <div class="row" style="display:none;">
@@ -82,21 +129,31 @@
                                 <p class="payment-errors"></p>
                             </div>
                         </div>
-                    </form>
+                    
                 </div>
             </div>            
             <!-- CREDIT CARD FORM ENDS HERE -->
+      <!--       <input type="text" name="type" value="<?php echo $query['type']; ?>"/>
+             <input type="text" name="start_loc" value="<?php echo $query['start_loc']; ?>"/>
+            <input type="text" name="end_loc" value="<?php echo $query['end_loc']; ?>"/>
+            <input type="text" name="start_time" value="<?php echo $query['start_time']; ?>"/>
+            <input type="text" name="end_time" value="<?php echo $query['end_time']; ?>"/>
+            <input type="text" name="model" value="<?php echo $query['model']; ?>"/>
+ -->           
+
+
 
             
-		   					</div>
-		   				</div>
-		   			</div>
-		   		</div>
-		   	</li>
+            </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
 
-		  	</ul>
-	  	</div>
-	</aside>
+            </ul>
+        </div>
+    </aside>
 
 
 

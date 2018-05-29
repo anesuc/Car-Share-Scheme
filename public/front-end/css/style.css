@@ -1132,6 +1132,21 @@ footer {
     font-weight: 400;
     padding-left: 25px;
     padding-right: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+}
+
+.hide_map {
+    display: none;
+}
+
+.time_picker {
+    height: 54px;
+    margin: 5px 10px;
+    width: 150px;
+    text-align: center;
 }
 
 .dropup, .dropdown {
@@ -1148,6 +1163,11 @@ footer {
 }
 #book-header .form-inline .form-group .form-control {
   width: 100%;
+}
+
+#map_placeholder {
+    height: 500px;
+    width: 100%;
 }
 
 footer {
@@ -1683,6 +1703,10 @@ footer .copyright .block {
   padding-bottom: 2em !important;
 }
 
+.notActiveOpacity {
+    opacity: 0;
+}
+
 .fh5co-loader {
   position: fixed;
   left: 0px;
@@ -1695,6 +1719,10 @@ footer .copyright .block {
 
 .js .animate-box {
   opacity: 0;
+}
+
+.active, .btn-primary.active:hover {
+        background-color: #286090 !mportant;
 }
 
 /*# sourceMappingURL=style.css.map */

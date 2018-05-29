@@ -26,6 +26,9 @@
 	<link rel="stylesheet" href="css/icomoon.css">
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
+        
+	<!-- Jquery UI  -->
+	<link rel="stylesheet" href="css/jquery-ui.css">        
 
 	<!-- Flexslider  -->
 	<link rel="stylesheet" href="css/flexslider.css">
@@ -39,9 +42,17 @@
 
 	<!-- Angel style -->
 	<link rel="stylesheet" href="css/Astyle.css">
+        
+    <!-- Glyphicons style -->
+    <link href="css/bootstrap.icon-large.min.css" rel="stylesheet">
+        
+        <!-- Time picker -->
+	<link rel="stylesheet" href="css/jquery-ui-timepicker-addon.css">
+        
+        <link rel="stylesheet" type="text/css" media="screen"
+     href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+  </head>
 
-	<!-- Payment css -->
-	<link rel="stylesheet" href="css/payment.css">
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 
