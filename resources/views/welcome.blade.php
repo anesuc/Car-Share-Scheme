@@ -76,7 +76,28 @@
                 </div>
                 <div class="col-md-3 col-xs-4 text-right hidden-xs menu-2">
                     <ul>
-                        <li><a href="{{ url('/login') }}">Login</a></li>
+                        @if (Auth::guest())
+                            <li><a href="{{ url('/login') }}">Login</a></li>
+                      
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ url('/logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
                         <li class="shopping-cart"><a href="#" class="cart"><span><small>0</small><i class="icon-shopping-cart"></i></span></a></li>
                     </ul>
                 </div>
@@ -101,7 +122,7 @@
                                 <span class="price">$50/hr</span>
                                 <h2>Premium Cars</h2>
                                 <p>A great selection of premium cars such as the Tesla Model X Blah blah blah.</p>
-                                <p><a href="../front-end/single.html" class="btn btn-primary btn-outline btn-lg">Book Now</a></p>
+                                <p><a href="../front-end/book.php?type=Standard" class="btn btn-primary btn-outline btn-lg">Book Now</a></p>
                             </div>
                         </div>
                     </div>
@@ -115,7 +136,7 @@
                                 <span class="price">$30/hr</span>
                                 <h2>Basic</h2>
                                 <p>Need a car just to get from point A to B? We've got you covered! blah blah blah</p>
-                                <p><a href="../front-end/single.html" class="btn btn-primary btn-outline btn-lg">Book Now</a></p>
+                                <p><a href="../front-end/book.php?type=Standard" class="btn btn-primary btn-outline btn-lg">Book Now</a></p>
                             </div>
                         </div>
                     </div>
@@ -125,7 +146,9 @@
             </ul>
         </div>
     </aside>
-      <!-- Scripts -->
+
+
+    <!-- Scripts -->
     <script src="../front-end/js/app.js"></script>
     <!-- jQuery -->
     <script src="../front-end/js/jquery.min.js"></script>
@@ -141,5 +164,45 @@
     <!--<script src="js/bootstrap-datetimepicker.min.js"></script>-->
     <!-- Timepicker -->
     <script src="../front-end/js/jquery-ui-timepicker-addon.js"></script>
-    </body>
+    <script type="text/javascript">
+    /*$(function () {
+        $('#datetimepicker6').datetimepicker();
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    });*/
+</script>
+<script type="text/javascript">
+  $(function() {
+    $('#start_datetimepicker').datetimepicker({
+      language: 'en',
+        controlType: 'select',
+    timeFormat: 'hh:mm tt'
+    });
+      
+      $('#end_datetimepicker').datetimepicker({
+      language: 'en',
+        controlType: 'select',
+    timeFormat: 'hh:mm tt'
+    });
+      
+  });
+</script>
+    <!-- Waypoints -->
+    <script src="../front-end/js/jquery.waypoints.min.js"></script>
+    <!-- Carousel -->
+    <script src="../front-end/js/owl.carousel.min.js"></script>
+    <!-- countTo -->
+    <script src="../front-end/js/jquery.countTo.js"></script>
+    <!-- Flexslider -->
+    <script src="../front-end/js/jquery.flexslider-min.js"></script>
+    <!-- Main -->
+    <script src="../front-end/js/main.js"></script>
+</body>
 </html>

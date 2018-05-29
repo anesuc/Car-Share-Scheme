@@ -13,7 +13,7 @@
                                 <span class="price">$50/hr</span>
                                 <h2>Premium Cars</h2>
                                 <p>A great selection of premium cars such as the Tesla Model X Blah blah blah.</p>
-                                <p><a href="single.html" class="btn btn-primary btn-outline btn-lg">Book Now</a></p>
+                                <p><a href="../front-end/book.php?type=Standard" class="btn btn-primary btn-outline btn-lg">Book Now</a></p>
                             </div>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
                                 <span class="price">$30/hr</span>
                                 <h2>Basic</h2>
                                 <p>Need a car just to get from point A to B? We've got you covered! blah blah blah</p>
-                                <p><a href="single.html" class="btn btn-primary btn-outline btn-lg">Book Now</a></p>
+                                <p><a href="../front-end/book.php" class="btn btn-primary btn-outline btn-lg">Book Now</a></p>
                             </div>
                         </div>
                     </div>
