@@ -65,7 +65,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-xs-2">
-                    <div id="fh5co-logo"><a href="../front-end/index.php">Car Share Scheme.</a></div>
+
+                    
+                    <div id="fh5co-logo"><a href="{{ url('/home') }}">Car Share Scheme.</a></div>
                 </div>
                 <div class="col-md-6 col-xs-6 text-center menu-1">
                     <ul>
