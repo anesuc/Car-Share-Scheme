@@ -295,7 +295,7 @@
 		loaderPage();
 		counterWayPoint();
 		sliderMain();
-		//testimonialCarousel();
+		testimonialCarousel();
 	});
 
 

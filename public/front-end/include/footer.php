@@ -44,8 +44,48 @@
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
 	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- jQuery UI -->
+	<script src="js/jquery-ui.min.js"></script>
+	<!-- Moment JS -->
+	<script src="js/moment.min.js"></script>
 	<!-- Bootstrap -->
 	<script src="js/bootstrap.min.js"></script>
+	<!-- Bootstrap Timepicker -->
+	<!--<script src="js/bootstrap-datetimepicker.min.js"></script>-->
+    <!-- Timepicker -->
+    <script src="js/jquery-ui-timepicker-addon.js"></script>
+
+    <script type="text/javascript">
+    /*$(function () {
+        $('#datetimepicker6').datetimepicker();
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    });*/
+</script>
+
+<script type="text/javascript">
+  $(function() {
+    $('#start_datetimepicker').datetimepicker({
+      language: 'en',
+        controlType: 'select',
+	timeFormat: 'hh:mm:ss'
+    });
+      
+      $('#end_datetimepicker').datetimepicker({
+      language: 'en',
+        controlType: 'select',
+	timeFormat: 'hh:mm:ss'
+    });
+      
+  });
+</script>
 	<!-- Waypoints -->
 	<script src="js/jquery.waypoints.min.js"></script>
 	<!-- Carousel -->
