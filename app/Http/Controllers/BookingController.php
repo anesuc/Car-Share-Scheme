@@ -15,7 +15,10 @@ class BookingController extends Controller
 	{
         return view('book');
     }
-
+    public function payment()
+	{
+        return view('payment');
+    }
 
     public function find_available($type,$start_loc,$end_loc,$start_time,$end_time)
     {

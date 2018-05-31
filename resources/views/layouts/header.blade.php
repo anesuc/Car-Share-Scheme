@@ -21,29 +21,46 @@
 	<meta name="twitter:card" content="" />
 	
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="{{ asset('css/animate.css') }}">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 
 	<!-- Flexslider  -->
-	<link rel="stylesheet" href="css/flexslider.css">
+	<link rel="stylesheet" href="{{ asset('css/flexslider.css') }}">
 
 	<!-- Owl Carousel  -->
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
 
 	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 	<!-- Angel style -->
-	<link rel="stylesheet" href="css/Astyle.css">
+	<link rel="stylesheet" href="{{ asset('css/Astyle.css') }}">
 
 	<!-- Payment css -->
-	<link rel="stylesheet" href="css/payment.css">
+	<link rel="stylesheet" href="{{ asset('css/payment.css') }}">
 	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
+	<script src="{{ asset('js/modernizr-2.6.2.min.js') }}"></script>
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+	<!-- Bootstrap -->
+	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+	<!-- Waypoints -->
+	<script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
+	<!-- Carousel -->
+	<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+	<!-- countTo -->
+	<script src="{{ asset('js/jquery.countTo.js') }}"></script>
+	<!-- Flexslider -->
+	<script src="{{ asset('js/jquery.flexslider-min.js') }}"></script>
+	<!-- Main -->
+	<script src="{{ asset('js/main.js') }}"></script>
+
 
 	</head>
 	<body>
@@ -56,7 +73,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3 col-xs-2">
-					<div id="fh5co-logo"><a href="index.php">Car Share Scheme.</a></div>
+					<div id="fh5co-logo"><a href="{!! url('/index'); !!}">Car Share Scheme.</a></div>
 				</div>
 				<div class="col-md-6 col-xs-6 text-center menu-1">
 					<ul>
