@@ -77,7 +77,7 @@
 				</div>
 				<div class="col-md-6 col-xs-6 text-center menu-1">
 					<ul>
-						<li><a href="book.php">Book a car</a></li>
+						<li><a href="booking">Book a car</a></li>
 						<li><a href="about.html">About</a></li>
 						<li><a href="contact.html">Contact</a></li>
 					</ul>
