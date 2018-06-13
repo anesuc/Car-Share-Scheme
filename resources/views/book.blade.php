@@ -86,7 +86,7 @@ if(isset($_GET['type'])) {
                     
                     ?>
                     
-                    
+                    <input type="hidden" id="access_token" value="{{ Auth::user()->access_token }}">
                 </div>
             </div>
         </div>
