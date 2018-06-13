@@ -79,9 +79,9 @@ if(isset($_GET['type'])) {
                         echo '<input type = "datetime-local" placeholder="Select end time" id = "end_datetimepicker" class="time_picker">';
                         
                     } else {
-                        echo '<a href="/booking?type=Standard" class="btn btn-primary btn-outline btn-lg">Standard</a>'
-                        .'<a href="/booking?type=People Mover" class="btn btn-primary btn-outline btn-lg">People Mover</a>'
-                        .'<a href="/booking?type=Luxury" class="btn btn-primary btn-outline btn-lg">Luxury</a>';
+                        echo '<a href="booking?type=Standard" class="btn btn-primary btn-outline btn-lg">Standard</a>'
+                        .'<a href="booking?type=People Mover" class="btn btn-primary btn-outline btn-lg">People Mover</a>'
+                        .'<a href="booking?type=Luxury" class="btn btn-primary btn-outline btn-lg">Luxury</a>';
                     }
                     
                     ?>
@@ -126,10 +126,11 @@ echo '<div>'.
 
 if(isset($_GET['type'])) {
     echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHU34atHJNLRCfcIGJJKkK6FDufXOj-Sc&sensor=false"></script>';
-    echo '<script src="js/map.js"></script>';
+
+    //echo '<script src="js/map.js"></script>';
 }
 ?>
-
+<script src='{{ asset("js/map.js") }}'></script>;
 
 @include('layouts.footer')
 

@@ -17,7 +17,7 @@
                             <div class="slider-text-inner">
                                 <div class="desc" style="margin: auto;">
                                    
-                                    <input id="email" type="email" name="email" class="form-control" aria-label="Email" aria-describedby="basic-addon1" value="{{ old('email') }}" required autofocus>
+                                    <input id="email" type="email" name="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" value="{{ old('email') }}" required autofocus>
                                     <input id="password" type="password" name="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
                                 
                                     <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : ''}}> Remember Me
