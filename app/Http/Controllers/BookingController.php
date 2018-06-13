@@ -91,8 +91,8 @@ class BookingController extends Controller
 			        $booking->car_id = $car_id;
 			        $booking->start_loc = $start_loc;
 			        $booking->end_loc = $end_loc;
-			        $booking->start_time = $start_time;
-			        $booking->end_time = $end_time;
+			        $booking->start_time = new DateTime($start_time);
+			        $booking->end_time = new DateTime($end_time);
 			        $booking->receipt = $receipt;
 			        $booking->user_id =  $user->id;
 
