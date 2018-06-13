@@ -19,7 +19,7 @@ Use App\CarPark;
  Route::get('available_bookings/type={type}&start_loc={start_loc}&end_loc={end_loc}&start_time={start_time}&end_time={end_time}', 'BookingController@find_available');
  Route::get('add_booking/start_loc={start_loc}&end_loc={end_loc}&start_time={start_time}&end_time={end_time}&car_id={car_id}&access_token={access_token}', 'BookingController@add_booking');
 
-
+Route::get('get_single_receipt/receipt_number={receipt_number}&access_token={access_token}', 'BookingController@get_single_receipt');
 
 
  Route::get('carparks/', 'CarParkController@find_all');

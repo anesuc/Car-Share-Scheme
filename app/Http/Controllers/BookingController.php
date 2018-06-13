@@ -8,17 +8,19 @@ use App\User;
 use App\Booking;
 use App\Car;
 use DateTime;
+use DB;
 class BookingController extends Controller
 {
     
-	public function index()
-	{
+	public function index(){
         return view('book');
     }
-    public function payment()
-	{
+    public function payment(){
         return view('payment');
     }
+   	public function receipt() {
+		return view('receipt');
+	}
 
     public function find_available($type,$start_loc,$end_loc,$start_time,$end_time)
     {
@@ -108,12 +110,23 @@ class BookingController extends Controller
 		else echo "not logged in"; 
 	}
 
-	public function test() {
-		
-		$user_id =  Auth::user();
-		echo json_encode($user_id);
-		if($user = Auth::user()){
-			echo "done";
-		}
+
+
+	public function get_single_receipt($id, $access_token) {
+
+    	$bookings = DB::table('bookings')
+            ->join('users', 'users.id', '=', 'bookings.user_id')
+            ->join('cars', 'cars.id', '=', 'bookings.car_id')
+            ->join('carparks', 'carparks.id', '=', 'bookings.start_loc')
+            ->select('physical_location','title','registration','name','start_time','receipt')
+            ->get( );
+
+            foreach($bookings as $booking){
+            	if($booking->receipt==$id){	
+            		echo '{"booking" :';
+        			echo json_encode($booking);
+        			echo '}';
+        		}
+        	}
 	}
 }

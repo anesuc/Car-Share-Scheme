@@ -25,6 +25,8 @@ Route::get('/logout', 'AdminController@logoutUser');
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 Route::get('booking', 'BookingController@index');
+Route::get('receipt', 'BookingController@receipt');
+Route::get('receipt?number={receipt_number}&access_token={access_token}', 'BookingController@receipt');
 Route::get('/payment?start_loc={start_loc}&end_loc={end_loc}&start_time={start_time}&end_time={end_time}&car_id={car_id}&access_token={access_token}', 'BookingController@payment');
 Route::get('/payment', 'BookingController@payment');
 //Route::get('/available_bookings', 'BookingController@find_available');
