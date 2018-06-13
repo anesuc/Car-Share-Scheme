@@ -59,7 +59,8 @@ if(isset($_GET['type'])) {
                             .'</span>'
                         .'</div>'
                     .'</div>';*/
-                        
+                        echo '<input type="text" name="datetimes" class="timepicker" placeholder="Select start time" id = "start_datetimepicker" class="time_picker">';
+
                         echo '<div id="start_locations" class="dropdown">'
                         .'<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><span class="current_selection" >Select start location </span>'
                             .'<span class="caret"></span></button>'
@@ -67,7 +68,7 @@ if(isset($_GET['type'])) {
                         .'</ul>'
                     .'</div>';
                         
-                        echo '<input type = "datetime-local" placeholder="Select start time" id = "start_datetimepicker" class="time_picker">';
+
                         
                         echo '<div id="end_locations" class="dropdown">'
                         .'<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><span class="current_selection" >Select end location </span>'
@@ -75,8 +76,7 @@ if(isset($_GET['type'])) {
                         .'<ul class="dropdown-menu">'
                         .'</ul>'
                     .'</div>';
-                        
-                        echo '<input type = "datetime-local" placeholder="Select end time" id = "end_datetimepicker" class="time_picker">';
+
                         
                     } else {
                         echo '<a href="booking?type=Standard" class="btn btn-primary btn-outline btn-lg">Standard</a>'

@@ -9,6 +9,22 @@ String.prototype.replaceAll = function(search, replacement) {
 };
 
 
+$( document ).ready(function() {
+
+    $(function() {
+        $('#start_datetimepicker').daterangepicker({
+            timePicker: true,
+            startDate: moment().startOf('hour'),
+            endDate: moment().startOf('hour').add(32, 'hour'),
+            locale: {
+                format: 'DD/MM/YY hh:mm A'
+            }
+        });
+    });
+
+});
+
+
 //Setting sample location ready for the API
 var locations = [];
 var map; // store map data here
@@ -97,10 +113,8 @@ function setEndLocation(locationPosition) {
 }
 
 function checkAllInput() {
-    console.log('$( "#start_datetimepicker" ).text()',$( "#start_datetimepicker" ).val());
-    console.log('$( "#end_datetimepicker" ).text()',$( "#end_datetimepicker" ).val());
-    
-    if ($("#end_locations > button > .caret").hasClass("hidden") && $("#start_locations > button > .caret").hasClass("hidden") && $( "#start_datetimepicker" ).val() != "" && $( "#end_datetimepicker" ).val() != ""){
+
+    if ($("#end_locations > button > .caret").hasClass("hidden") && $("#start_locations > button > .caret").hasClass("hidden") && $( "#start_datetimepicker" ).val() != ""){
         $("#map").removeClass("hide_map");
         setStartEndLocation();
     }
@@ -123,16 +137,18 @@ function changeCarType(type) {
 }
 
 function makeBooking() {
+
     if (selectedCarID != -1) {
         var car_type = $("#car_type").attr("type");
         var start_location;
         var start_location_name = $("#start_locations > button > .current_selection").text();
         var start_location_id = -1;
-        var start_time = $( "#start_datetimepicker" ).val().replaceAll("/","-");
+        var allTimes = $( "#start_datetimepicker" ).val().split(" - ");
+        var start_time =  allTimes[0].replaceAll("/","-");
         var end_location;
         var end_location_name = $("#end_locations > button > .current_selection").text();
         var end_location_id = -1;
-        var end_time = $( "#end_datetimepicker" ).val().replaceAll("/","-");
+        var end_time = allTimes[1].replaceAll("/","-");//$( "#end_datetimepicker" ).val().replaceAll("/","-");
 
         for (var i = 0; i < locations.length; i++) {
             if (locations[i].name == start_location_name){
@@ -172,11 +188,12 @@ function setStartEndLocation() {
     var start_location;
     var start_location_name = $("#start_locations > button > .current_selection").text();
     var start_location_id = -1;
-    var start_time = $( "#start_datetimepicker" ).val().replaceAll("/","-");
+    var allTimes = $( "#start_datetimepicker" ).val().split(" - ");
+    var start_time =  allTimes[0].replaceAll("/","-");
     var end_location;
     var end_location_name = $("#end_locations > button > .current_selection").text();
     var end_location_id = -1;
-    var end_time = $( "#end_datetimepicker" ).val().replaceAll("/","-");
+    var end_time = allTimes[1].replaceAll("/","-");
 
     for (var i = 0; i < locations.length; i++) {
         if (locations[i].name == start_location_name){

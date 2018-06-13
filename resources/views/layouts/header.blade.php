@@ -34,6 +34,9 @@
 	<link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
 
+	<!-- Date Range Picker -->
+	<link rel="stylesheet" href="{{ asset('css/daterangepicker.css') }}">
+
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
@@ -58,6 +61,12 @@
 	<script src="{{ asset('js/jquery.countTo.js') }}"></script>
 	<!-- Flexslider -->
 	<script src="{{ asset('js/jquery.flexslider-min.js') }}"></script>
+	<!-- Moment -->
+	<script src="{{ asset('js/moment.min.js') }}"></script>
+	<!-- Date Range Picker -->
+	<script src="{{ asset('js/daterangepicker.min.js') }}"></script>
+
+
 	<!-- Main -->
 	<script src="{{ asset('js/main.js') }}"></script>
 
