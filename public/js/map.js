@@ -149,7 +149,7 @@ function makeBooking() {
         }
     }
     
-    window.location.href = "payment.php?type="+car_type+"&start_loc="+start_location_id+"&end_loc="+end_location_id+"&start_time="+start_time+"&end_time="+end_time+"&model="+selectedCarID;
+    window.location.href = "payment?start_loc="+start_location_id+"&end_loc="+end_location_id+"&start_time="+start_time+"&end_time="+end_time+"&car_id="+selectedCarID+"&access_token=999";
 }
 
 function selectModel(selectedDiv,model_name,modelID) {
