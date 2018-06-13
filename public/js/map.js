@@ -166,7 +166,7 @@ function makeBooking() {
             }
         }
 
-        window.location.href = "payment?start_loc="+start_location_id+"&end_loc="+end_location_id+"&start_time="+start_time+"&end_time="+end_time+"&car_id="+selectedCarID+"&access_token=999";
+        window.location.href = "payment?start_loc="+start_location_id+"&end_loc="+end_location_id+"&start_time="+start_time+"&end_time="+end_time+"&car_id="+selectedCarID+"&access_token="+$("#access_token").val();
 
     }
     }
