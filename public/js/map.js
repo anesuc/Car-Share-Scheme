@@ -123,34 +123,37 @@ function changeCarType(type) {
 }
 
 function makeBooking() {
-    var car_type = $("#car_type").attr("type");
-    var start_location;
-    var start_location_name = $("#start_locations > button > .current_selection").text();
-    var start_location_id = -1;
-    var start_time = $( "#start_datetimepicker" ).val().replaceAll("/","-");
-    var end_location;
-    var end_location_name = $("#end_locations > button > .current_selection").text();
-    var end_location_id = -1;
-    var end_time = $( "#end_datetimepicker" ).val().replaceAll("/","-");
-    
-    for (var i = 0; i < locations.length; i++) {
-        if (locations[i].name == start_location_name){
-            start_location = locations[i];
-            start_location_id = locations[i].id;
-            break;
+    if (selectedCarID != -1) {
+        var car_type = $("#car_type").attr("type");
+        var start_location;
+        var start_location_name = $("#start_locations > button > .current_selection").text();
+        var start_location_id = -1;
+        var start_time = $( "#start_datetimepicker" ).val().replaceAll("/","-");
+        var end_location;
+        var end_location_name = $("#end_locations > button > .current_selection").text();
+        var end_location_id = -1;
+        var end_time = $( "#end_datetimepicker" ).val().replaceAll("/","-");
+
+        for (var i = 0; i < locations.length; i++) {
+            if (locations[i].name == start_location_name){
+                start_location = locations[i];
+                start_location_id = locations[i].id;
+                break;
+            }
         }
-    }
-    
-    for (var i = 0; i < locations.length; i++) {
-        if (locations[i].name == end_location_name){
-            end_location = locations[i];
-            end_location_id = locations[i].id;
-            break;
+
+        for (var i = 0; i < locations.length; i++) {
+            if (locations[i].name == end_location_name){
+                end_location = locations[i];
+                end_location_id = locations[i].id;
+                break;
+            }
         }
+
+        window.location.href = "payment?start_loc="+start_location_id+"&end_loc="+end_location_id+"&start_time="+start_time+"&end_time="+end_time+"&car_id="+selectedCarID+"&access_token=999";
+
     }
-    
-    window.location.href = "payment?start_loc="+start_location_id+"&end_loc="+end_location_id+"&start_time="+start_time+"&end_time="+end_time+"&car_id="+selectedCarID+"&access_token=999";
-}
+    }
 
 function selectModel(selectedDiv,model_name,modelID) {
     modelName = model_name;
@@ -174,7 +177,7 @@ function setStartEndLocation() {
     var end_location_name = $("#end_locations > button > .current_selection").text();
     var end_location_id = -1;
     var end_time = $( "#end_datetimepicker" ).val().replaceAll("/","-");
-    
+
     for (var i = 0; i < locations.length; i++) {
         if (locations[i].name == start_location_name){
             start_location = locations[i];
@@ -182,7 +185,7 @@ function setStartEndLocation() {
             break;
         }
     }
-    
+
     for (var i = 0; i < locations.length; i++) {
         if (locations[i].name == end_location_name){
             end_location = locations[i];
@@ -190,29 +193,29 @@ function setStartEndLocation() {
             break;
         }
     }
-    
+
     console.log("end_time",end_time);
 
     console.log("server response","api/available_bookings/type="+car_type+"&start_loc="+start_location_id+"&end_loc="+end_location_id+"&start_time="+start_time+"&end_time="+end_time)
-    
+
     var data = httpGet("api/available_bookings/type="+car_type+"&start_loc="+start_location_id+"&end_loc="+end_location_id+"&start_time="+start_time+"&end_time="+end_time);
-    
+
     var availableCars = JSON.parse(data);
-        
+
     console.log("data",availableCars);
     console.log("locations",locations);
-    
+
     var sameStartEndLocation = false;
-    
+
     //Clear previous markers
     for (var i = 0; i < markers.length; i++)
         markers[i].setMap(null);
-    
+
     markers = [];
-    
-    
+
+
     for (var x = 0; x < locations.length; x++) {
-        
+
         if((locations[x].id == start_location_id || locations[x].id == end_location_id) && (sameStartEndLocation == false)) {
             var latlng = new google.maps.LatLng(locations[x].lat, locations[x].long);
             var marker = new google.maps.Marker({
@@ -220,10 +223,10 @@ function setStartEndLocation() {
                 map: map,
                 icon: 'images/loc.png'
             });
-            
+
             console.log(" locations", sameStartEndLocation);
-            
-        
+
+
         // Create the popup window html content
                var contentString = '<div id="content">'+
                    '<div id="siteNotice">'+
@@ -242,17 +245,17 @@ function setStartEndLocation() {
                     }
                    if (locations[x].id != start_location_id && locations[x].id != end_location_id)
                        contentString += '<div class="carTypeMapListing"><b>'+$('#car_type').attr("type")+' </b>selection available at this location</div>';
-                        
+
                    contentString += '<div style = "margin: 20px 0;">';
                     if (locations[x].id == start_location_id) { //Temporary, will make it auto update
                     for (var j = 0; j < availableCars.length; j++)
-                        contentString += '<a href="#" onclick="selectModel(this,&quot;'+availableCars[j].title+'&quot;,'+availableCars[j].id+')" class="cars btn btn-primary btn-sm">'+availableCars[j].title+'</a> ';
-                        
+                        contentString += '<a href="javascript:void(0);" onclick="selectModel(this,&quot;'+availableCars[j].title+'&quot;,'+availableCars[j].id+')" class="cars btn btn-primary btn-sm">'+availableCars[j].title+'</a> ';
+
                         if (availableCars.length == 0)
                             contentString += '<div>No available <b>'+$('#car_type').attr("type")+'</b> cars at this location.</b></div>';
                     }
                    contentString += '</div>'+
-                    '<p  class="makeBooking text-right notActiveOpacity"><a id="tempID" href="#" onclick="makeBooking()" class="btn btn-primary btn-outline btn-sm">Select</a></p>'+
+                    '<p  class="makeBooking text-right notActiveOpacity"><a id="tempID" href="javascript:void(0);" onclick="makeBooking();" class="btn btn-primary btn-outline btn-sm">Select</a></p>'+
                     '</div>'+
                     '</div>';
             
