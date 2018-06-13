@@ -193,9 +193,9 @@ function setStartEndLocation() {
     
     console.log("end_time",end_time);
 
-    console.log("server response","/api/available_bookings/type="+car_type+"&start_loc="+start_location_id+"&end_loc="+end_location_id+"&start_time="+start_time+"&end_time="+end_time)
+    console.log("server response","api/available_bookings/type="+car_type+"&start_loc="+start_location_id+"&end_loc="+end_location_id+"&start_time="+start_time+"&end_time="+end_time)
     
-    var data = httpGet("../api/available_bookings/type="+car_type+"&start_loc="+start_location_id+"&end_loc="+end_location_id+"&start_time="+start_time+"&end_time="+end_time);
+    var data = httpGet("api/available_bookings/type="+car_type+"&start_loc="+start_location_id+"&end_loc="+end_location_id+"&start_time="+start_time+"&end_time="+end_time);
     
     var availableCars = JSON.parse(data);
         
