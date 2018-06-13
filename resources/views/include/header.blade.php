@@ -65,11 +65,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-xs-2">
-                    <div id="fh5co-logo"><a href="../front-end/index.php">Car Share Scheme.</a></div>
+
+                    
+                    <div id="fh5co-logo"><a href="{{ url('/home') }}">Car Share Scheme.</a></div>
                 </div>
                 <div class="col-md-6 col-xs-6 text-center menu-1">
                     <ul>
-                        <li><a href=".{{ url('/book') }}">Book a car</a></li>
+                        <li><a href="../front-end/book.php">Book a car</a></li>
                         <li><a href="../front-end/about.html">About</a></li>
                         <li><a href="../front-end/contact.html">Contact</a></li>
                     </ul>
@@ -105,122 +107,5 @@
             
         </div>
     </nav>
- @yield('content')
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header"> -->
-                    <!-- Collapsed Hamburger
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button> ---->
-                    <!-- Branding Image -->
-                   <!--  <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
-                <div class="collapse navbar-collapse " id="app-navbar-collapse">
-                     Left Side Of Navbar -->
-                    <!-- <ul class="nav navbar-nav col-md-push-5" style="border: solid"> -->
-                       <!--  &nbsp;
-                        <li><a href="book.php">Book a car</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>  -->
-                    <!-- Right Side Of Navbar -->
-                    <!-- <ul class="nav navbar-nav navbar-right" style="border: solid"> -->
-                        <!-- Authentication Links -->
-                        
-      <!--               </ul>
-                </div>
-            </div>
-        </nav>
-       
-    </div>  -->
-
-
-
-
-    <!-- Scripts -->
-    <script src="../front-end/js/app.js"></script>
-    <!-- jQuery -->
-    <script src="../front-end/js/jquery.min.js"></script>
-    <!-- jQuery Easing -->
-    <script src="../front-end/js/jquery.easing.1.3.js"></script>
-    <!-- jQuery UI -->
-    <script src="../front-end/js/jquery-ui.min.js"></script>
-    <!-- Moment JS -->
-    <script src="../front-end/js/moment.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="../front-end/js/bootstrap.min.js"></script>
-    <!-- Bootstrap Timepicker -->
-    <!--<script src="js/bootstrap-datetimepicker.min.js"></script>-->
-    <!-- Timepicker -->
-    <script src="../front-end/js/jquery-ui-timepicker-addon.js"></script>
-    <script type="text/javascript">
-    /*$(function () {
-        $('#datetimepicker6').datetimepicker();
-        $('#datetimepicker7').datetimepicker({
-            useCurrent: false //Important! See issue #1075
-        });
-        $("#datetimepicker6").on("dp.change", function (e) {
-            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-        });
-        $("#datetimepicker7").on("dp.change", function (e) {
-            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-        });
-    });*/
-</script>
-<script type="text/javascript">
-  $(function() {
-    $('#start_datetimepicker').datetimepicker({
-      language: 'en',
-        controlType: 'select',
-    timeFormat: 'hh:mm tt'
-    });
-      
-      $('#end_datetimepicker').datetimepicker({
-      language: 'en',
-        controlType: 'select',
-    timeFormat: 'hh:mm tt'
-    });
-      
-  });
-</script>
-    <!-- Waypoints -->
-    <script src="../front-end/js/jquery.waypoints.min.js"></script>
-    <!-- Carousel -->
-    <script src="../front-end/js/owl.carousel.min.js"></script>
-    <!-- countTo -->
-    <script src="../front-end/js/jquery.countTo.js"></script>
-    <!-- Flexslider -->
-    <script src="../front-end/js/jquery.flexslider-min.js"></script>
-    <!-- Main -->
-    <script src="../front-end/js/main.js"></script>
-</body>
-</html>

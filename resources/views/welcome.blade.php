@@ -71,7 +71,7 @@
                 </div>
                 <div class="col-md-6 col-xs-6 text-center menu-1">
                     <ul>
-                        <li><a href="../front-end/book.php">Book a car</a></li>
+                        <li><a href="{{ url('/book') }}">Book a car</a></li>
                         <li><a href="../front-end/about.html">About</a></li>
                         <li><a href="../front-end/contact.html">Contact</a></li>
                     </ul>
