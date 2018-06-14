@@ -296,7 +296,7 @@ function setStartEndLocation() {
             
           this.infoWindow.open(map, this);
         });
-        
+
         if (locations[x].id == start_location_id) {
             google.maps.event.trigger(marker, 'click');
         }
@@ -321,16 +321,24 @@ function init() {
     
     //Get user Location
     function getLocation() {
+        setMapToMelbourneLocation();
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(setMapToUserLocation);
         } else {
             mapElement.innerHTML = "Geolocation is not supported by this browser."; //For now show an error. Will discuss about what to do in this case during our scrum meeting
+            console.log("Geolocation is not supported by this browser.")
         }
     }
     
     // Initialize the map with a given location
     function setMapToUserLocation(position) {
         var myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        setupGoogleMaps(myLatlng);
+    }
+
+    // Initialize the map with Melbourne as location
+    function setMapToMelbourneLocation() {
+        var myLatlng = new google.maps.LatLng(-37.8136, 144.9631);
         setupGoogleMaps(myLatlng);
     }
     
