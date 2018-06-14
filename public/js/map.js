@@ -76,15 +76,18 @@ String.prototype.replaceAll = function(search, replacement) {
 var google;
 
 setTimeout(function(){ 
-    $('.dropdown').on('show.bs.dropdown', function () {
-        console.log("dropped down opened");
+    $('.dropdown').on('show.bs.dropdown', function (something) {
+        console.log("dropped down opened",$(something.currentTarget).children(".dropdown-menu").outerHeight());
         $("#map_placeholder").removeClass("hidden"); //Using this to give some space below the dropdown menu
-        $("#map").addClass("hidden"); // Hide the map
+        $("#map_placeholder").height($(something.currentTarget).children(".dropdown-menu").outerHeight());
+
+
+        //$("#map").addClass("hidden"); // Hide the map
     }); 
     
     $('.dropdown').on('hide.bs.dropdown', function () {
         console.log("dropped down closed");
-        $("#map").removeClass("hidden"); //Show the map
+        //$("#map").removeClass("hidden"); //Show the map
         $("#map_placeholder").addClass("hidden"); //Hide the blank placeholder
         checkAllInput();
     });
@@ -347,7 +350,7 @@ function init() {
 
     function setupGoogleMaps(myLatlng) {
     var mapOptions = {
-        zoom: 10, //Zoom level of the map
+        zoom: 8, //Zoom level of the map
 
         center: myLatlng, // The latitude and longitude to center the map
 

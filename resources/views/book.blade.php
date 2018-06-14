@@ -96,8 +96,8 @@ if(isset($_GET['type'])) {
 
 <?php
 echo '<div>'.
-    '<div id="map" class="animate-box hide_map" data-animate-effect="fadeIn"></div>'.
     '<div id="map_placeholder" class="hidden"></div>'.
+    '<div id="map" class="animate-box hide_map" data-animate-effect="fadeIn"></div>'.
 '</div>';
 
 
