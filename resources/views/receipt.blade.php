@@ -22,8 +22,9 @@
                 $.each(data, function(key, value){ 
                      $('#name').append(value.name);   
                      $('#start_time').append(value.start_time);
-                     $('#physical_location').append(value.physical_location);
+                     $('#start_loc').append(value.start_loc);
                      $('#end_time').append(value.end_time);
+                     $('#end_loc').append(value.end_loc);
                      $('#title').append(value.title);
                      $('#rego').append(value.registration);
                 });
@@ -34,8 +35,9 @@
 <table id="#dataTable">
 <tr><td><div>Customer Name:</div></td><td><div id="name"></div></td></tr>
 <tr><td><div>Start Time:</div></td><td><div id="start_time"></div></td></tr>
-<tr><td><div>Start Location:</div></td><td><div id="physical_location"></div></td></tr>
+<tr><td><div>Start Location:</div></td><td><div id="start_loc"></div></td></tr>
 <tr><td><div>End Time:</div></td><td><div id="end_time"></div></td></tr>
+<tr><td><div>End Location:</div></td><td><div id="end_loc"></div></td></tr>
 <tr><td><div>Car:</div></td><td><div id="title"></div></td></tr>
 <tr><td><div>Registration:</div></td><td><div id="rego"></div></td></tr>
 

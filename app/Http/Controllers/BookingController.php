@@ -117,8 +117,9 @@ class BookingController extends Controller
     	$bookings = DB::table('bookings')
             ->join('users', 'users.id', '=', 'bookings.user_id')
             ->join('cars', 'cars.id', '=', 'bookings.car_id')
-            ->join('carparks', 'carparks.id', '=', 'bookings.start_loc')
-            ->select('physical_location','title','registration','name','start_time', 'end_time','receipt', 'access_token')
+            ->join('carparks as cp1', 'cp1.id', '=', 'bookings.start_loc')
+            ->join('carparks as cp2', 'cp2.id', '=', 'bookings.end_loc')
+            ->select('cp1.physical_location as start_loc','cp2.physical_location as end_loc','title','registration','name','start_time', 'end_time','receipt', 'access_token')
             ->get( );
 
             foreach($bookings as $booking){
