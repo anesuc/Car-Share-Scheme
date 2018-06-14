@@ -1588,6 +1588,12 @@ html, body {
   background: #d8cb98 !important;
   border-color: #d8cb98 !important;
 }
+
+.btn-primary.active:hover, .btn-primary.active:active, .btn-primary.active:focus {
+  background-color: black !important;
+  border-color: black !important;
+}
+
 .btn-primary.btn-outline {
   background: transparent;
   color: #d1c286;
