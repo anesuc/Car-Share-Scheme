@@ -118,14 +118,16 @@ class BookingController extends Controller
             ->join('users', 'users.id', '=', 'bookings.user_id')
             ->join('cars', 'cars.id', '=', 'bookings.car_id')
             ->join('carparks', 'carparks.id', '=', 'bookings.start_loc')
-            ->select('physical_location','title','registration','name','start_time','receipt')
+            ->select('physical_location','title','registration','name','start_time', 'end_time','receipt', 'access_token')
             ->get( );
 
             foreach($bookings as $booking){
-            	if($booking->receipt==$id){	
-            		echo '{"booking" :';
-        			echo json_encode($booking);
-        			echo '}';
+            	if($booking->receipt==$id){
+            		if($booking->access_token == $access_token)	{
+	            		echo '{"booking" :';
+	        			echo json_encode($booking);
+	        			echo '}';
+	        		}
         		}
         	}
 	}
