@@ -10,12 +10,7 @@
     var end_time = getUrl.get("end_time");
     var id = getUrl.get("car_id");
     var access_token = getUrl.get("access_token");
-    
-    document.write(start_loc);
-    document.write(end_loc);
-    document.write(end_time);
-    document.write(id);
-    document.write(access_token);
+
 
 
     
@@ -27,7 +22,6 @@
     $(document).ready(function(){
         $("form").submit(function(e){
             
-            document.getElementById("test").value="hi";
            var jsonURL = 'api/add_booking/start_loc='+start_loc+'&end_loc='+end_loc+'&start_time='+start_time+'&end_time='+end_time+'&car_id='+id+'&access_token='+access_token;
            e.preventDefault();
 
@@ -145,7 +139,5 @@
         </div>
     </aside>
 
-
-<div id="test">hello</div>
 
 @include('layouts.footer')
