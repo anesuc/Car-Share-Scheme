@@ -137,4 +137,25 @@ class BookingController extends Controller
         		}
         	}
 	}
+
+
+	public function get_user_bookings($access_token) {
+
+    	$bookings = DB::table('bookings')
+            ->join('users', 'users.id', '=', 'bookings.user_id')
+            ->join('cars', 'cars.id', '=', 'bookings.car_id')
+            ->select('start_time', 'receipt', 'registration', 'access_token')
+            ->where('access_token', $access_token)
+            ->get( );
+            echo json_encode($bookings);
+			/*echo '{';
+            foreach($bookings as $booking){
+            	if($booking->access_token==$access_token){
+	            		echo '"booking" :';
+	        			echo json_encode($booking);
+	        			
+	        		}
+        		
+        	}echo '}';*/
+	}
 }

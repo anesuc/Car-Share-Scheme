@@ -78,7 +78,7 @@ class RegisterController extends Controller
         'country' => $data['country'],
         'postal_code' => (int)$data['postal_code'],
         'password' => bcrypt($data['password']),
-        'admin' => 5,
+        'admin' => 0,
         'access_token' => str_random(100),
         ]);
     }
