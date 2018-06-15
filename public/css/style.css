@@ -28,6 +28,13 @@ body {
   -o-transition: 0.5s;
   transition: 0.5s;
 }
+
+
+#book-header {
+  position: relative;
+  z-index: 1000;
+}
+
 .offcanvas #page {
   overflow: hidden;
   position: absolute;
