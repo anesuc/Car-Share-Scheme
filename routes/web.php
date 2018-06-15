@@ -24,6 +24,7 @@ Route::get('/logout', 'AdminController@logoutUser');
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
+Route::get('/account', 'HomeController@account');
 Route::get('booking', 'BookingController@index');
 Route::get('receipt', 'BookingController@receipt');
 Route::get('receipt?number={receipt_number}&access_token={access_token}', 'BookingController@receipt');

@@ -8,7 +8,13 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    Welcome {{ Auth::user()->name }}
+                </div>
+                <div class="panel-body">
+                    <a href="booking">Book a car</a>
+                </div>
+                <div class="panel-body">
+                    <a href="history">View Past Bookings</a>
                 </div>
             </div>
         </div>

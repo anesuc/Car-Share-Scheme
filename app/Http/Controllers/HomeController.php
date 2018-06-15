@@ -27,11 +27,16 @@ class HomeController extends Controller
         if($user = Auth::user())
         {
             $admin = Auth::user()->admin;
-            if($admin==2){ 
+            if($admin==1){ 
                 return redirect('site_control');
             }
         }
-        return redirect('booking');
+        return view('home');
+    }
+
+    public function account()
+    {
+        return view('account');
     }
 
 
