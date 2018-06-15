@@ -17,7 +17,7 @@ $( document ).ready(function() {
             startDate: moment().startOf('hour'),
             endDate: moment().startOf('hour').add(32, 'hour'),
             locale: {
-                format: 'DD/MM/YY hh:mm A'
+                format: 'YY/MM/DD hh:mm A'
             }
         });
     });
