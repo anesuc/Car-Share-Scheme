@@ -13,7 +13,12 @@ class BookingController extends Controller
 {
     
 	public function index(){
-        return view('book');
+		if($user = Auth::user())
+        {
+            return view('book');
+        }
+        return redirect('login');
+        
     }
     public function payment(){
         return view('payment');

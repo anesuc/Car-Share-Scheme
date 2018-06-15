@@ -5,12 +5,11 @@
             <div class="panel panel-default">
 
                 <div class="panel-body">
-                    make this the about and home page to non users
+                    about page.....
                 </div>
                 
             </div>
         </div>
     </div>
 </div>
-
 @include('layouts.footer')
