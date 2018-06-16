@@ -41,25 +41,6 @@ Route::get('/site_control', function () {
     return view('welcome');
 });
 
-Route::get('/add_cars', function () {
-
-    if($user = Auth::user()->admin == 1)
-    {
-        return view('add_cars');
-    }
-    return view('welcome');
-});
-
-/*
-Route::get('/add_parking', function () {
-
-    if($user = Auth::user()->admin == 1)
-    {
-        return view('add_parking');
-    }
-    return view('welcome');
-});*/
-
 Route::get('/add_service', function () {
 
     if($user = Auth::user()->admin == 1)
@@ -72,6 +53,7 @@ Route::get('/add_service', function () {
 Auth::routes();
 
 Route::resource('add_parking', 'CarParkController');//for Adding Carparks
+Route::resource('add_cars', 'CarController');//for Adding Carparks
 
 
 
