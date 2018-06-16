@@ -11,13 +11,13 @@
                     Welcome {{ Auth::user()->name }}.
                 </div>
                 <div class="panel-body">
-                    <a href="booking">Add Cars</a>
+                    <a href="add_cars">Add New Car</a>
                 </div>
                 <div class="panel-body">
-                    <a href="history">Add Parking</a>
+                    <a href="add_parking">Add New Parking Lot</a>
                 </div>
                 <div class="panel-body">
-                    <a href="history">Add Service</a>
+                    <a href="add_service">Add Car Service</a>
                 </div>
             </div>
         </div>

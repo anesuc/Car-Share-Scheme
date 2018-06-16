@@ -14,7 +14,7 @@
 		   				<div class="slider-text-inner">
 		   					<div class="desc" style="float: left;margin-right:200px;">
 		   						<a href="add_cars.php" class="btn btn-light btn-xs" role="button">Add New Car</a>
-		   						<a href="add_parking.php" class="btn btn-light btn-xs" role="button">Add new parking lot</a>
+		   						<a href="add_parking.php" class="btn btn-light btn-xs" role="button">Add New Parking Lot</a>
 		   						<a href="add_service.php" class="btn btn-light btn-xs" role="button">Add Car Service</a>
 		   					</div>
 		   				</div>
