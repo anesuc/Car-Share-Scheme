@@ -29,13 +29,11 @@ class BookingController extends Controller
 
     public function find_available($type,$start_loc,$end_loc,$start_time,$end_time)
     {
-    	$start_time_t = new DateTime($start_time);
-    	$end_time_t = new DateTime($end_time);
     	$cars = Car::where('type','=', $type)->get();
     	$available_cars = array();
 
 		foreach($cars as $car){
-			if ($this->car_available($start_loc,$end_loc,$start_time_t,$end_time_t,$car->id)){
+			if ($this->car_available($start_loc,$end_loc,$start_time,$end_time,$car->id)){
 				array_push($available_cars,$car); 
 				
 			}
@@ -47,14 +45,15 @@ class BookingController extends Controller
 
 
 
-    public static function car_available($start_loc,$end_loc,$start_time,$end_time,$car_id)
+    public static function car_available($start_loc,$end_loc,$start_time_t,$end_time_t,$car_id)
     {
         $end = 999;
 	    $start = 999;
 	    $end_time_min = new DateTime('4000-01-01 00:00:00');
 	    $start_time_max = new DateTime('2000-01-01 00:00:00');
 
-
+	    $start_time = new DateTime($start_time_t);
+    	$end_time = new DateTime($end_time_t);
 
 	    $bookings = Booking::where('car_id','=', $car_id)->get();
 
