@@ -59,6 +59,7 @@ Route::get('/add_cars', function () {
     return view('welcome');
 });
 
+/*
 Route::get('/add_parking', function () {
 
     if($user = Auth::user()->admin == 1)
@@ -66,7 +67,7 @@ Route::get('/add_parking', function () {
         return view('add_parking');
     }
     return view('welcome');
-});
+});*/
 
 Route::get('/add_service', function () {
 
@@ -78,6 +79,8 @@ Route::get('/add_service', function () {
 });
 
 Auth::routes();
+
+Route::resource('add_parking', 'CarParkController');//for Adding Carparks
 
 
 
@@ -92,4 +95,6 @@ Route::get('receipt', 'BookingController@receipt');
 Route::get('receipt?number={receipt_number}&access_token={access_token}', 'BookingController@receipt');
 Route::get('/payment', 'BookingController@payment');
 Route::get('/payment?start_loc={start_loc}&end_loc={end_loc}&start_time={start_time}&end_time={end_time}&car_id={car_id}&access_token={access_token}', 'BookingController@payment');
+
+
 //Route::get('/available_bookings', 'BookingController@find_available');
