@@ -7,6 +7,19 @@
             <li style="background-image: url(images/cars/tesla_model_x.jpg);">
                 <div class="overlay-gradient"></div>
                 <div class="container">
+
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
+
+                    @if ($message = Session::get('failed'))
+                        <div class="alert alert-danger">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
+
                     <div class="col-md-6 col-md-offset-0 col-md-pull-1 js-fullheight slider-text">
                         <div class="slider-text-inner">
                             <div class="desc" style="float: left;margin-right:200px;">
@@ -17,18 +30,23 @@
                         </div>
 
                         <div class="slider-text-inner">
+                            <form class="form-horizontal" role="form" method="POST" action="{{ action('CarController@index') }}">
                             <div class="desc" style="margin: auto; width:450px">
                                 Car Type:
-                                <input type="text" class="form-control" placeholder="Car Type"  aria-label="car_type" aria-describedby="basic-addon1">
+                                <input type="text" name="car_type" class="form-control" placeholder="Car Type"  aria-label="car_type" aria-describedby="basic-addon1" required>
                                 Year, Make, Model (Eg. "2017 Toyato Camry"):
-                                <input type="text" class="form-control" placeholder="Password" aria-label="car_title" aria-describedby="basic-addon1">
+                                <input type="text" name="car_title" class="form-control" placeholder="Year, Make, Model" aria-label="car_title" aria-describedby="basic-addon1" required>
+                                Registration:
+                                <input type="text" name="car_registration" class="form-control" placeholder="Registration" aria-label="car_registration" aria-describedby="basic-addon1" required>
                                 Date Purchased:
-                                <input type="date" class="form-control" placeholder="Password" aria-label="purchase_date" aria-describedby="basic-addon1">
+                                <input type="date" name="purchase_date" class="form-control" placeholder="mm/dd/yyyy" aria-label="purchase_date" aria-describedby="basic-addon1" required>
                                 Last Service:
-                                <input type="date" class="form-control" placeholder="Password" aria-label="last_service" aria-describedby="basic-addon1">
+                                <input type="date" name="last_service" class="form-control" placeholder="mm/dd/yyyy" aria-label="last_service" aria-describedby="basic-addon1" required>
                                 <br>
-                                <button type="button" class="btn btn-light btn-xs">Add Car</button>
+                                <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+                                <button type="submit" class="btn btn-light btn-xs">Add Car</button>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
