@@ -32,6 +32,15 @@ Route::get('/history', function () {
     return view('welcome');
 });
 
+Route::get('/site_control', function () {
+
+    if($user = Auth::user()->admin == 1)
+    {
+        return view('site_control');
+    }
+    return view('welcome');
+});
+
 Auth::routes();
 
 
