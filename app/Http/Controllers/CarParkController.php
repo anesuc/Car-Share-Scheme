@@ -30,24 +30,6 @@ class CarParkController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function add_parking(Request $request) {
-        $allRequest = $request->all();
-        /*
-        $carpark = new Carpark;
-        $carpark->physical_location = $allRequest['location'];
-        $carpark->long = $allRequest['long'];
-        $carpark->lat = $allRequest['lat'];
-        $carpark->capacity = $allRequest['capacity'];
-
-
-        if(!$carpark->save()){
-            echo "couldn't add booking";
-        }
-        else {
-            echo $receipt;
-        }*/
-
-        //return view('add_parking');
-        //return redirect()->route('add_carpark')->with('success', 'Successfully Registered!');
 
     }
 

@@ -34,12 +34,12 @@
                            <form class="form-horizontal" role="form" method="POST" action="{{ action('CarParkController@index') }}">
                             <div class="desc" style="margin: auto; width:450px">
                                 Address:
-                                <input type="text" name="address" class="form-control" placeholder="Address"  aria-label="address" aria-describedby="basic-addon1" required>
-                                <p><a class="btn btn-light btn-xs" style="background-color: buttonface; color: black;">Auto locate</a></p>
+                                <input id="address" type="text" name="address" class="form-control" placeholder="Address"  aria-label="address" aria-describedby="basic-addon1" required>
+                                <p><a id="autolocate" href="#" onclick="autolocate()" class="btn btn-light btn-xs hidden" style="background-color: buttonface; color: black;">Auto locate</a></p>
                                 Latitude:
-                                <input type="text" name="lat" class="form-control" placeholder="Latitude" aria-label="lat" aria-describedby="basic-addon1" required>
+                                <input id="lat" type="text" name="lat" class="form-control" placeholder="Latitude" aria-label="lat" aria-describedby="basic-addon1" required>
                                 Longitude:
-                                <input type="text" name="long" class="form-control" placeholder="Longitude" aria-label="lng" aria-describedby="basic-addon1" required>
+                                <input id="long" type="text" name="long" class="form-control" placeholder="Longitude" aria-label="lng" aria-describedby="basic-addon1" required>
                                 Capacity:
                                 <input type="text" name="capacity" class="form-control" placeholder="Capacity" aria-label="capacity" aria-describedby="basic-addon1" required>
                                 <br>
@@ -57,4 +57,5 @@
     </div>
 </aside>
 
+<script src='{{ asset("js/add_carpark.js") }}'></script>;
 @include('layouts.footer')
