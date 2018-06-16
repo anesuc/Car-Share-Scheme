@@ -27,8 +27,19 @@ $( document ).ready(function() {
 
 //Setting sample location ready for the API
 var locations = [];
-var map; // store map data here
 
+var jsonURL = 'api/carparks/';
+            var r = new Array(), j = -1;
+            $.getJSON(jsonURL, function(data) {   
+                $.each(data, function(key, value){ 
+                    locations.push(value);
+
+                });
+            });
+
+
+var map; // store map data here
+/*
 var loc1 = {
     id: 1,
     name: "28/24-28 Gladstone St, Moonee Ponds VIC 3039",
@@ -55,7 +66,7 @@ var loc3 = {
 locations.push(loc1);
 locations.push(loc2);
 locations.push(loc3);
-
+*/
 
 
 
@@ -88,20 +99,20 @@ setTimeout(function(){
     });
     
     for (var i = 0; i < locations.length; i++) {
-        $("#start_locations > .dropdown-menu").append('<li><a href="#" onclick="setStartLocation('+i+')">'+locations[i].name+'</a></li>');
-        $("#end_locations > .dropdown-menu").append('<li><a href="#" onclick="setEndLocation('+i+')">'+locations[i].name+'</a></li>');
+        $("#start_locations > .dropdown-menu").append('<li><a href="#" onclick="setStartLocation('+i+')">'+locations[i].physical_location+'</a></li>');
+        $("#end_locations > .dropdown-menu").append('<li><a href="#" onclick="setEndLocation('+i+')">'+locations[i].physical_location+'</a></li>');
     }
                      }, 100);
 
 function setStartLocation(locationPosition) {
     console.log("set location triggered")
-    $("#start_locations > button > .current_selection").text(locations[locationPosition].name);
+    $("#start_locations > button > .current_selection").text(locations[locationPosition].physical_location);
     $("#start_locations > button > .caret").addClass("hidden");
 }
 
 function setEndLocation(locationPosition) {
     console.log("set location triggered")
-    $("#end_locations > button > .current_selection").text(locations[locationPosition].name);
+    $("#end_locations > button > .current_selection").text(locations[locationPosition].physical_location);
     $("#end_locations > button > .caret").addClass("hidden");
 }
 
@@ -144,7 +155,7 @@ function makeBooking() {
         var end_time = allTimes[1].replaceAll("/","-");//$( "#end_datetimepicker" ).val().replaceAll("/","-");
 
         for (var i = 0; i < locations.length; i++) {
-            if (locations[i].name == start_location_name){
+            if (locations[i].physical_location == start_location_name){
                 start_location = locations[i];
                 start_location_id = locations[i].id;
                 break;
@@ -152,7 +163,7 @@ function makeBooking() {
         }
 
         for (var i = 0; i < locations.length; i++) {
-            if (locations[i].name == end_location_name){
+            if (locations[i].physical_location == end_location_name){
                 end_location = locations[i];
                 end_location_id = locations[i].id;
                 break;
@@ -189,7 +200,7 @@ function setStartEndLocation() {
     var end_time = allTimes[1].replaceAll("/","-");
 
     for (var i = 0; i < locations.length; i++) {
-        if (locations[i].name == start_location_name){
+        if (locations[i].physical_location == start_location_name){
             start_location = locations[i];
             start_location_id = locations[i].id;
             break;
@@ -197,7 +208,7 @@ function setStartEndLocation() {
     }
 
     for (var i = 0; i < locations.length; i++) {
-        if (locations[i].name == end_location_name){
+        if (locations[i].physical_location == end_location_name){
             end_location = locations[i];
             end_location_id = locations[i].id;
             break;
@@ -241,7 +252,7 @@ function setStartEndLocation() {
                var contentString = '<div id="content">'+
                    '<div id="siteNotice">'+
                    '</div>'+
-                   '<h1 id="firstHeading" class="firstHeading">'+locations[x].name+'</h1>'+
+                   '<h1 id="firstHeading" class="firstHeading">'+locations[x].physical_location+'</h1>'+
                    '<div id="bodyContent" class="text-left">';
                     if (locations[x].id == start_location_id && locations[x].id == end_location_id) {
                         sameStartEndLocation = true;

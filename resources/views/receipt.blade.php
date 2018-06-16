@@ -17,7 +17,6 @@
        
    
            var jsonURL = 'api/get_single_receipt/receipt_number='+receipt_number+'&access_token='+access_token;
-            var r = new Array(), j = -1;
             $.getJSON(jsonURL, function(data) {   
                 $.each(data, function(key, value){ 
                      $('#name').append(value.name);   
