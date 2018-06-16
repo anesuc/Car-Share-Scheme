@@ -35,8 +35,34 @@
 
     });
 </script>
-<div id="title"></div>
-<ul id="dataTable">
-</ul>
+
+
+<aside id="fh5co-hero" class="js-fullheight">
+    <div class="flexslider js-fullheight">
+        <ul class="slides">
+            <li style="background-image: url(images/cars/tesla_model_x.jpg);">
+                <div class="overlay-gradient"></div>
+                <div class="container">
+                    <div class="col-md-6 col-md-offset-0 col-md-pull-1 js-fullheight slider-text">
+                        <div class="slider-text-inner">
+                            <div class="desc" style="float: left;margin-right:200px;">
+                                <a href="" class="btn btn-light btn-xs" >Upcoming</a>
+                                <a href="" class="btn btn-light btn-xs" >All</a>
+                            </div>
+                        </div>
+
+                        <div class="slider-text-inner">
+                            <div class="desc" style="margin: auto; width:600px">
+                                <ul id="dataTable"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+
+        </ul>
+    </div>
+</aside>
 
 @include('layouts.footer')

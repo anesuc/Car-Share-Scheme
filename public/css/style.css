@@ -351,7 +351,6 @@ h1, h2, h3, h4, h5, h6, figure {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  min-height: 700px;
 }
 #fh5co-hero .flexslider .flex-control-nav {
   bottom: 40px;

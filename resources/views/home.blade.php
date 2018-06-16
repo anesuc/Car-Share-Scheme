@@ -1,5 +1,21 @@
 @include('layouts.header')
+<script type="text/javascript">
 
+    $(document).ready(function(){
+       
+   
+           var jsonURL = 'api/get_soonest_booking/access_token={{Auth::user()->access_token }}';
+            $.getJSON(jsonURL, function(data) { 
+                if(data != null){  
+                    $('#upcoming').append('<h2>Upcoming Bookings:</h2>'); 
+                    $.each(data, function(key, value){ 
+                         $('#upcoming').append(value.start_time+' at '+value.start_loc+'<br>');   
+                    });
+                }
+            });
+
+    });
+</script>
 
 <aside id="fh5co-hero" class="js-fullheight">
     <div class="flexslider js-fullheight">
@@ -16,9 +32,9 @@
                         </div>
 
                         <div class="slider-text-inner">
-                            <div class="desc" style="margin: auto; width:450px">
+                            <div class="desc" style="margin: auto; width:600px">
                                 <h1>Welcome {{ Auth::user()->name }}</h1>
-                                something goes here
+                                <div id="upcoming"></div>
                             </div>
                         </div>
                     </div>

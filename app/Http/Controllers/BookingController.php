@@ -147,14 +147,20 @@ class BookingController extends Controller
             ->where('access_token', $access_token)
             ->get( );
             echo json_encode($bookings);
-			/*echo '{';
-            foreach($bookings as $booking){
-            	if($booking->access_token==$access_token){
-	            		echo '"booking" :';
-	        			echo json_encode($booking);
-	        			
-	        		}
-        		
-        	}echo '}';*/
+	}
+
+	public function get_soonest_booking($access_token) {
+
+    	$bookings = DB::table('bookings')
+            ->join('users', 'users.id', '=', 'bookings.user_id')
+            ->join('cars', 'cars.id', '=', 'bookings.car_id')
+            ->join('carparks as cp1', 'cp1.id', '=', 'bookings.start_loc')
+            ->select('start_time', 'cp1.physical_location as start_loc', 'access_token')
+            ->where('access_token', $access_token)
+            ->whereDate('start_time','>=', DB::raw('CURDATE()'))
+            ->orderBy('start_time', 'asc')
+            ->limit(3)
+            ->get( );
+            echo json_encode($bookings);
 	}
 }
