@@ -31,6 +31,7 @@ class CarParkController extends Controller
      */
     public function add_parking(Request $request) {
 
+
     }
 
     public function store(Request $request) {
