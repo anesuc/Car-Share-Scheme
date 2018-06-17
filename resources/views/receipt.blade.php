@@ -10,6 +10,18 @@
     
 </script>
 
+<script type="text/javascript">
+var melbourne = { lat: -37.8136, lng: 144.9631 };
+
+function initMap() {
+   
+    var map = new google.maps.Map(document.getElementById('map_2'), {
+        zoom: 12,
+        center: melbourne
+    });
+
+}
+</script>
 
 <script type="text/javascript">
 
@@ -17,7 +29,11 @@
        
    
            var jsonURL = 'api/get_single_receipt/receipt_number='+receipt_number+'&access_token='+access_token;
-            $.getJSON(jsonURL, function(data) {   
+            $.getJSON(jsonURL, function(data) { 
+            var map = new google.maps.Map(document.getElementById('map_2'), {
+                zoom: 10,
+                center: melbourne
+            });  
                 $.each(data, function(key, value){ 
                      $('#name').append(value.name);   
                      $('#start_time').append(value.start_time);
@@ -26,8 +42,25 @@
                      $('#end_loc').append(value.end_loc);
                      $('#title').append(value.title);
                      $('#rego').append(value.registration);
+
+
+                    var latitude = value.start_lat;
+                    var longitude = value.start_long;
+                    var marker = new google.maps.Marker({
+                      position: {lat: latitude, lng: longitude},
+                      map: map,
+                      title: 'Start'
+                    });
+                    var latitude = value.end_lat;
+                    var longitude = value.end_long;
+                    var marker = new google.maps.Marker({
+                      position: {lat: latitude, lng: longitude},
+                      map: map,
+                      title: 'End'
+                    });
                 });
             });
+            
 
     });
 </script>
@@ -60,8 +93,12 @@
                                     <tr><td><div>Registration:</div></td><td><div id="rego"></div></td></tr>
 
                                 </table>
-                            </div>
+                            </div> 
+                            <div id="map_2" class="center-align" style="margin: auto; height:300px"></div>
                         </div>
+                       
+                        
+
                     </div>
                 </div>
 
@@ -70,5 +107,7 @@
         </ul>
     </div>
 </aside>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0PxV4cPoPvvMTAq8HbeMIzb_MFxubzqs&callback=initMap"></script>
+    
 
 @include('layouts.footer')

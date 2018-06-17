@@ -1241,7 +1241,10 @@ footer .copyright .block {
   min-height: 700px;
   width: 100%;
 }
-
+#map_2 {
+  min-height: 400px;
+  width: 100%;
+}
 #page {
   min-height: 100%;
   height: auto !important;

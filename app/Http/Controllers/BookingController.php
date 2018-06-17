@@ -121,7 +121,7 @@ class BookingController extends Controller
             ->join('cars', 'cars.id', '=', 'bookings.car_id')
             ->join('carparks as cp1', 'cp1.id', '=', 'bookings.start_loc')
             ->join('carparks as cp2', 'cp2.id', '=', 'bookings.end_loc')
-            ->select('cp1.physical_location as start_loc','cp2.physical_location as end_loc','title','registration','name','start_time', 'end_time','receipt', 'access_token')
+            ->select('cp1.lat as start_lat','cp1.long as start_long','cp2.lat as end_lat','cp2.long as end_long','cp1.physical_location as start_loc','cp2.physical_location as end_loc','title','registration','name','start_time', 'end_time','receipt', 'access_token')
             ->get( );
 
             foreach($bookings as $booking){
