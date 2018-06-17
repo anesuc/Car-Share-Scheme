@@ -4,7 +4,7 @@
     $(document).ready(function(){
        
    
-           var jsonURL = 'api/get_soonest_booking/access_token={{Auth::user()->access_token }}';
+           var jsonURL = 'api/get_upcoming_bookings/access_token={{Auth::user()->access_token }}';
             $.getJSON(jsonURL, function(data) { 
                 if(data != null){  
                     $('#upcoming').append('<h2>Upcoming Bookings:</h2>'); 
@@ -27,7 +27,7 @@
                         <div class="slider-text-inner">
                             <div class="desc" style="float: left;margin-right:200px;">
                                 <a href="booking" class="btn btn-light btn-xs" >Book a car</a>
-                                <a href="history" class="btn btn-light btn-xs" >View Past Bookings</a>
+                                <a href="history?sort=all" class="btn btn-light btn-xs" >View Past Bookings</a>
                             </div>
                         </div>
 

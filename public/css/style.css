@@ -1767,4 +1767,9 @@ html, body {
   opacity: 0;
 }
 
+
+.uh-li {
+  list-style-type: none;
+  font-family: "Montserrat", Arial, sans-serif;
+}
 /*# sourceMappingURL=style.css.map */

@@ -89,7 +89,6 @@ class BookingController extends Controller
 		$users = User::where('access_token','=', $access_token)->get();
 		if(count($users)==1){
 			foreach($users as $user){
-				$receipt = rand ( 1000000000 , 2000000000 );
 				if(BookingController::car_available($start_loc, $end_loc, $start_time, $end_time, $car_id)){
 					$booking = new Booking;
 			        $booking->car_id = $car_id;
@@ -97,7 +96,6 @@ class BookingController extends Controller
 			        $booking->end_loc = $end_loc;
 			        $booking->start_time = new DateTime($start_time);
 			        $booking->end_time = new DateTime($end_time);
-			        $booking->receipt = $receipt;
 			        $booking->user_id =  $user->id;
 
 
@@ -105,7 +103,7 @@ class BookingController extends Controller
 					    echo "couldn't add booking";
 					}
 					else {
-						echo $receipt;
+						echo $booking->id;//actually receipt - confusing but too hard to change
 					}
 				}
 				else echo "car not available";			
@@ -143,23 +141,37 @@ class BookingController extends Controller
     	$bookings = DB::table('bookings')
             ->join('users', 'users.id', '=', 'bookings.user_id')
             ->join('cars', 'cars.id', '=', 'bookings.car_id')
-            ->select('start_time', 'receipt', 'registration', 'access_token')
+            ->join('carparks as cp1', 'cp1.id', '=', 'bookings.start_loc')
+            ->select('start_time', 'cp1.physical_location as start_loc', 'receipt', 'title', 'registration', 'access_token')
             ->where('access_token', $access_token)
+             ->orderBy('start_time', 'desc')
             ->get( );
             echo json_encode($bookings);
 	}
 
-	public function get_soonest_booking($access_token) {
+	public function get_upcoming_bookings($access_token) {
 
     	$bookings = DB::table('bookings')
             ->join('users', 'users.id', '=', 'bookings.user_id')
             ->join('cars', 'cars.id', '=', 'bookings.car_id')
             ->join('carparks as cp1', 'cp1.id', '=', 'bookings.start_loc')
-            ->select('start_time', 'cp1.physical_location as start_loc', 'access_token')
+            ->select('start_time', 'cp1.physical_location as start_loc', 'receipt', 'title', 'registration', 'access_token')
             ->where('access_token', $access_token)
             ->whereDate('start_time','>=', DB::raw('CURDATE()'))
             ->orderBy('start_time', 'asc')
-            ->limit(3)
+            ->get( );
+            echo json_encode($bookings);
+	}
+	public function get_past_bookings($access_token) {
+
+    	$bookings = DB::table('bookings')
+            ->join('users', 'users.id', '=', 'bookings.user_id')
+            ->join('cars', 'cars.id', '=', 'bookings.car_id')
+            ->join('carparks as cp1', 'cp1.id', '=', 'bookings.start_loc')
+            ->select('start_time', 'cp1.physical_location as start_loc', 'receipt', 'title','registration', 'access_token')
+            ->where('access_token', $access_token)
+            ->whereDate('start_time','<', DB::raw('CURDATE()'))
+            ->orderBy('start_time', 'desc')
             ->get( );
             echo json_encode($bookings);
 	}

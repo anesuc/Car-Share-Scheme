@@ -15,23 +15,66 @@
 
     $(document).ready(function(){
        
-   
-           var jsonURL = 'api/get_user_bookings/access_token={{ Auth::user()->access_token }}';
-            var r = new Array(), j = -1;
-            $.getJSON(jsonURL, function(data) {   
+            
+
+
+
+        /*
+        code taken from
+        https://stackoverflow.com/questions/19491336/get-url-parameter-jquery-or-how-to-get-query-string-values-in-js
+        */
+
+        var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        };
+
+
+        var sort = getUrlParameter('sort');
+        if(sort=='upcoming'){
+            var jsonURL = 'api/get_upcoming_bookings/access_token={{ Auth::user()->access_token }}';
+            $.getJSON(jsonURL, function(data) { 
+                if(data.length == 0){$('#dataTable').append('No upcoming bookings to display')}  
                 $.each(data, function(key, value){ 
-                	$('#dataTable').append('<li><a href="receipt?number='+value.receipt+'&access_token={{ Auth::user()->access_token }}">Booking Number: '+value.receipt+'</a></li>');
-                	 //$('#title').append(value.registration);
-                	/*
-                     $('#name').append(value.name);   
-                     $('#start_time').append(value.start_time);
-                     $('#start_loc').append(value.start_loc);
-                     $('#end_time').append(value.end_time);
-                     $('#end_loc').append(value.end_loc);
-                     $('#title').append(value.title);
-                     $('#rego').append(value.registration);*/
+                    $('#dataTable').append('<li class="uh-li"><a href="receipt?number='+value.receipt+'&access_token={{ Auth::user()->access_token }}">'+value.start_time+'</a>');
+                    $('#dataTable').append('<ul><li class="uh-li" style="font-size:small">'+value.title+' at '+value.start_loc+'</li></ul>');
+                    $('#dataTable').append('</li>');
                 });
             });
+        }
+        else if(sort=='past'){
+            var jsonURL = 'api/get_past_bookings/access_token={{ Auth::user()->access_token }}';
+            
+            $.getJSON(jsonURL, function(data) { 
+            if(data.length == 0){$('#dataTable').append('No past bookings to display')}  
+                $.each(data, function(key, value){ 
+                    $('#dataTable').append('<li class="uh-li"><a href="receipt?number='+value.receipt+'&access_token={{ Auth::user()->access_token }}">'+value.start_time+'</a>');
+                    $('#dataTable').append('<ul><li class="uh-li" style="font-size:small">'+value.title+' at '+value.start_loc+'</li></ul>');
+                    $('#dataTable').append('</li>');                
+                });
+            });
+        }
+        else{
+            var jsonURL = 'api/get_user_bookings/access_token={{ Auth::user()->access_token }}';
+            $.getJSON(jsonURL, function(data) {  
+            if(data.length == 0){$('#dataTable').append('No bookings to display')} 
+                $.each(data, function(key, value){ 
+                    $('#dataTable').append('<li class="uh-li"><a href="receipt?number='+value.receipt+'&access_token={{ Auth::user()->access_token }}">'+value.start_time+'</a>');
+                    $('#dataTable').append('<ul><li class="uh-li" style="font-size:small">'+value.title+' at '+value.start_loc+'</li></ul>');
+                    $('#dataTable').append('</li>');
+                });
+            });
+        }
 
     });
 </script>
@@ -46,8 +89,9 @@
                     <div class="col-md-6 col-md-offset-0 col-md-pull-1 js-fullheight slider-text">
                         <div class="slider-text-inner">
                             <div class="desc" style="float: left;margin-right:200px;">
-                                <a href="" class="btn btn-light btn-xs" >Upcoming</a>
-                                <a href="" class="btn btn-light btn-xs" >All</a>
+                                <a href="?sort=all" class="btn btn-light btn-xs" >All</a>
+                                <a href="?sort=upcoming" class="btn btn-light btn-xs" >Upcoming</a>
+                                <a href="?sort=past" class="btn btn-light btn-xs" >Past</a>
                             </div>
                         </div>
 

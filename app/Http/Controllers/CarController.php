@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use App\Car;
 use App\Carpark;
+use App\Booking;
 use DateTime;
 
 class CarController extends Controller
@@ -46,6 +47,10 @@ class CarController extends Controller
         $car["Date of Purchase"] = new DateTime($allRequest['purchase_date']);
         $car["Last Service"] = new DateTime($allRequest['last_service']);
         $car->carpark_id = $allRequest['start_location'];
+
+       
+
+
         if ($request->hasFile('car_image')) {
             $car->imageExtension = $request->file('car_image')->getClientOriginalExtension();;
         } else {
@@ -62,9 +67,23 @@ class CarController extends Controller
                 $request->file('car_image')->move("images/cars",$imageName);
             }
             $return_message = 'Successfully Added "'.$request["car_title"].'" to available cars';
+
+            $booking = new Booking;
+            $booking->car_id = $car->id;
+            $booking->start_loc = 0;
+            $booking->end_loc = $allRequest['start_location'];
+            $booking->start_time = new DateTime('1000-01-01 00:00:00');
+            $booking->end_time = new DateTime('1000-01-01 00:00:00');
+            $booking->user_id =  0;
+
+            if(!$booking->save()){
+                    return redirect('add_cars')->with('failed', $return_message);
+            }
+
+
             return redirect('add_cars')->with('success', $return_message);
         }
-
+        
 
 
         //rename ('image.png', 'images/cars/image.png');
