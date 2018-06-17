@@ -69,22 +69,20 @@
         </ul>
     </div>
 </aside>
-
 @include('layouts.resources')
-
 <script type="text/javascript">
 
     $(document).ready(function(){
         $("form").submit(function(e){
-
+           
             if($("#car_registration").val().length <= 6) {
-                // Enable submit button
+                 // Enable submit button
             } else {
-                alert("Registration must be 6 characters or less");
-                e.preventDefault();
+                  alert("Registration must be 6 characters or less"); 
+            e.preventDefault();
 
             }
-
+            
         });
     });
 </script>

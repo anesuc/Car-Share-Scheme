@@ -8,8 +8,8 @@ function httpGet(theUrl)
 
 
 function autolocate() {
-    if ($("#address").val() != "") {
-        var data = httpGet("http://maps.google.com/maps/api/geocode/json?address="+$("#address").val()+"&sensor=false");
+    if ($("#autocomplete").val() != "") {
+        var data = httpGet("http://maps.google.com/maps/api/geocode/json?address="+$("#autocomplete").val()+"&sensor=false");
 
         var addressData = JSON.parse(data);
 
@@ -21,8 +21,8 @@ function autolocate() {
 
 }
 
-$( "#address" ).change(function() {
-    if ($("#address").val() != "")
+$( "#autocomplete" ).change(function() {
+    if ($("#autocomplete").val() != "")
         $("#autolocate").removeClass("hidden");
     else
         $("#autolocate").addClass("hidden");
