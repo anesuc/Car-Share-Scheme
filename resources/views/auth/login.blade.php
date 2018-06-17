@@ -48,5 +48,5 @@
 
 
 
-
+@include('layouts.resources')
 @include('layouts.footer')

@@ -35,16 +35,17 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <!-- Angel style -->
-    <link rel="stylesheet" href="{{ asset('css/Astyle.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/Astyle.min.css') }}">
 
     <!-- Payment css -->
-    <link rel="stylesheet" href="{{ asset('css/payment.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/payment.min.css') }}">
+
     <!-- Modernizr JS -->
     <script src="{{ asset('js/modernizr-2.6.2.min.js') }}"></script>
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- jQuery Easing -->
-    <script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+    <script src="{{ asset('js/jquery.easing.min.js') }}"></script>
     <!-- Bootstrap -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <!-- Waypoints -->
@@ -59,11 +60,8 @@
     <script src="{{ asset('js/moment.min.js') }}"></script>
     <!-- Date Range Picker -->
     <script src="{{ asset('js/daterangepicker.min.js') }}"></script>
-
-
     <!-- Main -->
-    <script src="{{ asset('js/main.js') }}"></script>
-
+    <script src="{{ asset('js/main.min.js') }}"></script>
  
 </head>
 <body>
