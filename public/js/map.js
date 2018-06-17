@@ -28,14 +28,14 @@ $( document ).ready(function() {
 //Setting sample location ready for the API
 var locations = [];
 
-var jsonURL = 'api/carparks/';
-            var r = new Array(), j = -1;
-            $.getJSON(jsonURL, function(data) {   
-                $.each(data, function(key, value){ 
-                    locations.push(value);
+var datas = httpGet("api/carparks");
 
-                });
-            });
+var availableCarParks = JSON.parse(datas);
+var r = new Array(), j = -1;
+$.each(availableCarParks, function(key, value){
+    locations.push(value);
+
+});
 
 
 var map; // store map data here
