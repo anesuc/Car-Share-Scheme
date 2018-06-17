@@ -130,7 +130,7 @@ echo '<div>'.
 
 ?>
 
-
+@include('layouts.resources')
 @include('layouts.footer')
 
 

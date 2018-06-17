@@ -57,4 +57,6 @@
     </div>
 </aside>
 
+@include('layouts.resources')
+
 @include('layouts.footer')

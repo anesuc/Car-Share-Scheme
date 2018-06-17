@@ -1,20 +1,5 @@
 @include('layouts.header')
-<script type="text/javascript">
 
-    $(document).ready(function(){
-        $("form").submit(function(e){
-           
-            if($("#car_registration").val().length <= 6) {
-                 // Enable submit button
-            } else {
-                  alert("Registration must be 6 characters or less"); 
-            e.preventDefault();
-
-            }
-            
-        });
-    });
-</script>
 <aside id="fh5co-hero" class="js-fullheight">
     <div class="flexslider js-fullheight">
         <ul class="slides">
@@ -85,4 +70,22 @@
     </div>
 </aside>
 
+@include('layouts.resources')
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $("form").submit(function(e){
+
+            if($("#car_registration").val().length <= 6) {
+                // Enable submit button
+            } else {
+                alert("Registration must be 6 characters or less");
+                e.preventDefault();
+
+            }
+
+        });
+    });
+</script>
 @include('layouts.footer')

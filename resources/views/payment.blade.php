@@ -1,43 +1,7 @@
 @include('layouts.header')
 
 
-<script type="text/javascript">
-    var getUrl = new URLSearchParams(document.location.search.substring(1));
-    
-    var start_loc = getUrl.get("start_loc");
-    var end_loc = getUrl.get("end_loc");
-    var start_time = getUrl.get("start_time");
-    var end_time = getUrl.get("end_time");
-    var id = getUrl.get("car_id");
-    var access_token = getUrl.get("access_token");
 
-
-
-    
-</script>
-
-
-<script type="text/javascript">
-
-    $(document).ready(function(){
-        $("form").submit(function(e){
-            
-           var jsonURL = 'api/add_booking/start_loc='+start_loc+'&end_loc='+end_loc+'&start_time='+start_time+'&end_time='+end_time+'&car_id='+id+'&access_token='+access_token;
-           e.preventDefault();
-
-            $.getJSON(jsonURL, function(data) {
-                window.location.replace("receipt?number="+data+"&access_token="+access_token);
-                /*
-                $.each(data, function(key, value){    
-                    document.getElementById("test").value=value; 
-                });*/
-
-            });
-
-            
-        });
-    });
-</script>
 
 
 
@@ -138,6 +102,46 @@
             </ul>
         </div>
     </aside>
+
+@include('layouts.resources')
+
+<script type="text/javascript">
+    var getUrl = new URLSearchParams(document.location.search.substring(1));
+
+    var start_loc = getUrl.get("start_loc");
+    var end_loc = getUrl.get("end_loc");
+    var start_time = getUrl.get("start_time");
+    var end_time = getUrl.get("end_time");
+    var id = getUrl.get("car_id");
+    var access_token = getUrl.get("access_token");
+
+
+
+
+</script>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $("form").submit(function(e){
+
+            var jsonURL = 'api/add_booking/start_loc='+start_loc+'&end_loc='+end_loc+'&start_time='+start_time+'&end_time='+end_time+'&car_id='+id+'&access_token='+access_token;
+            e.preventDefault();
+
+            $.getJSON(jsonURL, function(data) {
+                window.location.replace("receipt?number="+data+"&access_token="+access_token);
+                /*
+                $.each(data, function(key, value){
+                    document.getElementById("test").value=value;
+                });*/
+
+            });
+
+
+        });
+    });
+</script>
 
 
 @include('layouts.footer')
