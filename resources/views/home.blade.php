@@ -1,21 +1,5 @@
 @include('layouts.header')
-<script type="text/javascript">
 
-    $(document).ready(function(){
-       
-   
-           var jsonURL = 'api/get_upcoming_bookings/access_token={{Auth::user()->access_token }}';
-            $.getJSON(jsonURL, function(data) { 
-                if(data != null){  
-                    $('#upcoming').append('<h2>Upcoming Bookings:</h2>'); 
-                    $.each(data, function(key, value){ 
-                         $('#upcoming').append(value.start_time+' at '+value.start_loc+'<br>');   
-                    });
-                }
-            });
-
-    });
-</script>
 
 <aside id="fh5co-hero" class="js-fullheight">
     <div class="flexslider js-fullheight">
@@ -47,5 +31,22 @@
 </aside>
 
 @include('layouts.resources')
+<script type="text/javascript">
+
+    $(document).ready(function(){
+
+
+        var jsonURL = 'api/get_upcoming_bookings/access_token={{Auth::user()->access_token }}';
+        $.getJSON(jsonURL, function(data) {
+            if(data != null){
+                $('#upcoming').append('<h2>Upcoming Bookings:</h2>');
+                $.each(data, function(key, value){
+                    $('#upcoming').append(value.start_time+' at '+value.start_loc+'<br>');
+                });
+            }
+        });
+
+    });
+</script>
 
 @include('layouts.footer')
