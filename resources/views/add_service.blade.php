@@ -7,6 +7,19 @@
             <li style="background-image: url(images/cars/tesla_model_x.jpg);">
                 <div class="overlay-gradient"></div>
                 <div class="container">
+
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
+
+                    @if ($message = Session::get('failed'))
+                        <div class="alert alert-danger">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
+
                     <div class="col-md-6 col-md-offset-0 col-md-pull-1 js-fullheight slider-text">
                         <div class="slider-text-inner">
                             <div class="desc" style="float: left;margin-right:200px;">
@@ -17,21 +30,23 @@
                         </div>
 
                         <div class="slider-text-inner">
+                            <form class="form-horizontal" role="form" method="POST" action="{{ action('CarServiceController@index') }}">
                             <div class="desc" style="margin: auto; width:450px">
                                 Car Id:
-                                <select class="form-control" id="sel1">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
+                                <select name="car_id" class="form-control" id="sel1" required>
+                                    @foreach($allCars as $car)
+                                        <option value="{{$car->id}}">{{$car->id}} - "{{$car->title}}"</option>
+                                    @endforeach
                                 </select>
                                 Date of Service:
-                                <input type="date" class="form-control" placeholder="Password" aria-label="car_title" aria-describedby="basic-addon1">
+                                <input name="date_of_service" type="date" class="form-control" placeholder="Password" aria-label="car_title" aria-describedby="basic-addon1" required>
                                 Invoice No.:
-                                <input type="text" class="form-control" placeholder="Invoice" aria-label="purchase_date" aria-describedby="basic-addon1">
+                                <input name="invoice_no" type="text" class="form-control" placeholder="Invoice" aria-label="purchase_date" aria-describedby="basic-addon1" required>
                                 <br>
-                                <button type="button" class="btn btn-light btn-xs">Adding Service</button>
+                                <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+                                <button type="submit" class="btn btn-light btn-xs">Adding Service</button>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
