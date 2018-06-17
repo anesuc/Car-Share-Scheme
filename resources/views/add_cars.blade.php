@@ -1,5 +1,20 @@
 @include('layouts.header')
+<script type="text/javascript">
 
+    $(document).ready(function(){
+        $("form").submit(function(e){
+           
+            if($("#car_registration").val().length <= 6) {
+                 // Enable submit button
+            } else {
+                  alert("Registration must be 6 characters or less"); 
+            e.preventDefault();
+
+            }
+            
+        });
+    });
+</script>
 <aside id="fh5co-hero" class="js-fullheight">
     <div class="flexslider js-fullheight">
         <ul class="slides">
@@ -42,7 +57,7 @@
                                 Year, Make, Model (Eg. "2017 Toyato Camry"):
                                 <input type="text" name="car_title" class="form-control" placeholder="Year, Make, Model" aria-label="car_title" aria-describedby="basic-addon1" required>
                                 Registration:
-                                <input type="text" name="car_registration" class="form-control" placeholder="Registration" aria-label="car_registration" aria-describedby="basic-addon1" required>
+                                <input type="text" id="car_registration" name="car_registration" class="form-control" placeholder="Registration" aria-label="car_registration" aria-describedby="basic-addon1" required>
                                 Date Purchased:
                                 <input type="date" name="purchase_date" class="form-control" placeholder="mm/dd/yyyy" aria-label="purchase_date" aria-describedby="basic-addon1" required>
                                 Last Service:
