@@ -1,6 +1,5 @@
 @include('layouts.header')
 
-
 <aside id="fh5co-hero" class="js-fullheight">
     <div class="flexslider js-fullheight">
         <ul class="slides">
@@ -32,8 +31,14 @@
                         <div class="slider-text-inner">
                             <form class="form-horizontal" role="form" method="POST" action="{{ action('CarController@index') }}">
                             <div class="desc" style="margin: auto; width:450px">
-                                Car Type:
-                                <input type="text" name="car_type" class="form-control" placeholder="Car Type"  aria-label="car_type" aria-describedby="basic-addon1" required>
+                                Car Type:<br/>
+                                <select name="car_type" class="form-control">
+                                  <option value="Standard">Standard</option>
+                                  <option value="People">People Mover</option>
+                                  <option value="Lux">Luxury</option>
+                                
+                                </select>
+                       
                                 Year, Make, Model (Eg. "2017 Toyato Camry"):
                                 <input type="text" name="car_title" class="form-control" placeholder="Year, Make, Model" aria-label="car_title" aria-describedby="basic-addon1" required>
                                 Registration:
