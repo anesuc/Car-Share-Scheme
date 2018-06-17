@@ -8,9 +8,8 @@
                     <div class="col-md-6 col-md-offset-3 col-md-pull-3 js-fullheight slider-text">
                         <div class="slider-text-inner">
                             <div class="desc">
-                                <span class="price">$50/hr</span>
-                                <h2>Premium Cars</h2>
-                                <p>A great selection of premium cars such as the Tesla Model X Blah blah blah.</p>
+                                <h2>Luxury</h2>
+                                <p>Want to travel in luxury of your choice? Then you have come to the right place. We have all kinds of luxury cars such as the Tesla Model X and much more!</p>
                                 <p><a href="booking" class="btn btn-primary btn-outline btn-lg">Book Now</a></p>
                             </div>
                         </div>
@@ -22,9 +21,8 @@
                     <div class="col-md-6 col-md-offset-3 col-md-pull-3 js-fullheight slider-text">
                         <div class="slider-text-inner">
                             <div class="desc">
-                                <span class="price">$30/hr</span>
-                                <h2>Basic</h2>
-                                <p>Need a car just to get from point A to B? We've got you covered! blah blah blah</p>
+                                <h2>Standard</h2>
+                                <p>Need a car just to get from point A to B? We've got you covered! We have a great selection of good cars just for you!</p>
                                 <p><a href="booking" class="btn btn-primary btn-outline btn-lg">Book Now</a></p>
                             </div>
                         </div>
