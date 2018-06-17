@@ -124,13 +124,12 @@ echo '<div>'.
                             .'</div>';*/
 
 
-if(isset($_GET['type'])) {
-    echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHU34atHJNLRCfcIGJJKkK6FDufXOj-Sc&sensor=false"></script>';
+
 
     //echo '<script src="js/map.js"></script>';
-}
+
 ?>
-<script src='{{ asset("js/map.js") }}'></script>;
+
 
 @include('layouts.footer')
 

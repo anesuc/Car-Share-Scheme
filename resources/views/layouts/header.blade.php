@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <?php
 header("Cache-Control: Public"); //HTTP 1.1
-header("Expires: Sat, 26 Jul 2018 05:00:00 GMT");
+header("Expires: Sat, 26 Jul 2020 05:00:00 GMT");
 
 		?>
 
@@ -25,56 +25,7 @@ header("Expires: Sat, 26 Jul 2018 05:00:00 GMT");
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
-	
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="{{ asset('css/animate.css') }}">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="{{ asset('css/flexslider.css') }}">
-
-	<!-- Owl Carousel  -->
-	<link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
-
-	<!-- Date Range Picker -->
-	<link rel="stylesheet" href="{{ asset('css/daterangepicker.css') }}">
-
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
-	<!-- Angel style -->
-	<link rel="stylesheet" href="{{ asset('css/Astyle.min.css') }}">
-
-	<!-- Payment css -->
-	<link rel="stylesheet" href="{{ asset('css/payment.min.css') }}">
-	<!-- Modernizr JS -->
-	<script src="{{ asset('js/modernizr-2.6.2.min.js') }}"></script>
-	<!-- jQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="{{ asset('js/jquery.easing.min.js') }}"></script>
-	<!-- Bootstrap -->
-	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-	<!-- Waypoints -->
-	<script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
-	<!-- Carousel -->
-	<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-	<!-- countTo -->
-	<script src="{{ asset('js/jquery.countTo.js') }}"></script>
-	<!-- Flexslider -->
-	<script src="{{ asset('js/jquery.flexslider-min.js') }}"></script>
-	<!-- Moment -->
-	<script src="{{ asset('js/moment.min.js') }}"></script>
-	<!-- Date Range Picker -->
-	<script src="{{ asset('js/daterangepicker.min.js') }}"></script>
-
-
-	<!-- Main -->
-	<script src="{{ asset('js/main.min.js') }}"></script>
 
 
 	</head>
