@@ -29,6 +29,10 @@ body {
   transition: 0.5s;
 }
 
+.forceHeight {
+  height: 100% !important;
+}
+
 
 #book-header {
   position: relative;

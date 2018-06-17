@@ -3,7 +3,7 @@
 <aside id="fh5co-hero" class="js-fullheight">
     <div class="flexslider js-fullheight">
         <ul class="slides">
-            <li style="background-image: url(images/cars/tesla_model_x.jpg);">
+            <li class="forceHeight" style="background-image: url(images/cars/tesla_model_x.jpg); height: 100%">
                 <div class="overlay-gradient"></div>
                 <div class="container">
 
@@ -29,7 +29,7 @@
                         </div>
 
                         <div class="slider-text-inner">
-                            <form class="form-horizontal" role="form" method="POST" action="{{ action('CarController@index') }}">
+                            <form class="form-horizontal" role="form" method="POST" action="{{ action('CarController@index') }}"  enctype="multipart/form-data">
                             <div class="desc" style="margin: auto; width:450px">
                                 Car Type:<br/>
                                 <select name="car_type" class="form-control">
@@ -47,6 +47,14 @@
                                 <input type="date" name="purchase_date" class="form-control" placeholder="mm/dd/yyyy" aria-label="purchase_date" aria-describedby="basic-addon1" required>
                                 Last Service:
                                 <input type="date" name="last_service" class="form-control" placeholder="mm/dd/yyyy" aria-label="last_service" aria-describedby="basic-addon1" required>
+                                Initial/Start location:
+                                <select name="start_location" class="form-control" id="sel1" required>
+                                    @foreach($allCarparks as $carpark)
+                                        <option value="{{$carpark->id}}">{{$carpark->id}} - "{{$carpark->physical_location}}"</option>
+                                    @endforeach
+                                </select>
+                                Image of the car (optional):
+                                <input type="file" name="car_image" accept="image/*">
                                 <br>
                                 <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                                 <button type="submit" class="btn btn-light btn-xs">Add Car</button>
