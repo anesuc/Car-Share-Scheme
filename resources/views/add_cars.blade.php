@@ -34,8 +34,8 @@
                                 Car Type:<br/>
                                 <select name="car_type" class="form-control">
                                   <option value="Standard">Standard</option>
-                                  <option value="People">People Mover</option>
-                                  <option value="Lux">Luxury</option>
+                                  <option value="People Mover">People Mover</option>
+                                  <option value="Luxury">Luxury</option>
                                 
                                 </select>
                        
