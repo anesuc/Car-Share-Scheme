@@ -25,6 +25,3 @@ Here are some screenshots from the live website:
 
 ![Image showing the payment details page](carshares 6.png)
 **The payment details page**
-
-![Image showing the order details/receipt page](carshares.png)
-**The order details/receipt page**
