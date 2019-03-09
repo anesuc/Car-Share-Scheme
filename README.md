@@ -11,19 +11,19 @@ You can view the live demo [(here)](http://carshares.xyz/public)
 
 Here are some screenshots from the live website:
 
-![Image of the home page when user is not logged in](careshares%205.png)
+![Image of the home page when user is not logged in](carshares%205.png)
 **Home page when user is not logged in**
 
 ![Image of the home page when user is logged in](careshares%204.png)
 **Home page when user is logged in**
 
-![Image showing the three options for a user to book a car](careshares%202.png)
+![Image showing the three options for a user to book a car](carshares%202.png)
 **First page the user gets when they want to book a car**
 
-![Image showing the main car booking page](careshares%203.png)
+![Image showing the main car booking page](carshares%203.png)
 **The main car booking page**
 
-![Image showing the payment details page](careshares%206.png)
+![Image showing the payment details page](carshares%206.png)
 **The payment details page**
 
 ![Image showing the order details/receipt page](carshares.png)
