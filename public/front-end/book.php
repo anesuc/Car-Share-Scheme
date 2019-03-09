@@ -100,27 +100,7 @@ echo '<div>'.
 '</div>';
 
 
-                     /*echo '<div class="col-md-5">'
-                            .'<div class="form-group">'
-                            .'<div class="input-group date" id="datetimepicker6">'
-                            .'<input type="text" class="form-control" />'
-                            .'<span class="input-group-addon">'
-                            .'<span class="glyphicon glyphicon-calendar"></span>'
-                            .'</span>'
-                            .'</div>'
-                            .'</div>'
-                            .'</div>';
-                        
-                     echo '<div class="col-md-5">'
-                            .'<div class="form-group">'
-                            .'<div class="input-group date" id="datetimepicker7">'
-                            .'<input type="text" class="form-control" />'
-                            .'<span class="input-group-addon">'
-                            .'<span class="glyphicon glyphicon-calendar"></span>'
-                            .'</span>'
-                            .'</div>'
-                            .'</div>'
-                            .'</div>';*/
+    
 
 
 if(isset($_GET['type'])) {
